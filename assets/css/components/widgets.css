@@ -9,9 +9,18 @@ button.btn{font:inherit;font-weight:600;font-size:.95rem;cursor:pointer}
 #notify h3{font-size:1.5rem;letter-spacing:-.02em;margin-bottom:8px}
 #notify p{color:var(--muted);font-size:.93rem}
 #notify label{display:block;text-align:left;font-size:.8rem;font-family:var(--mono);color:var(--muted);margin:20px 0 6px}
-#notify input{width:100%;background:var(--bg2);border:1px solid var(--line);color:var(--text);padding:12px 16px;border-radius:999px;font:inherit}
-#notify input:focus{outline:2px solid var(--accent);outline-offset:1px}
-#notify .notify-err{color:#ef4444;font-size:.82rem;min-height:1.3em;margin:6px 0 10px;text-align:left}
+#notify input,#notify select{width:100%;background:var(--bg2);border:1px solid var(--line);color:var(--text);padding:12px 16px;border-radius:999px;font:inherit}
+#notify input:focus,#notify select:focus{outline:2px solid var(--accent);outline-offset:1px}
+#notify input[aria-invalid="true"]{border-color:#ef4444}
+/* Contact method dropdown sits in front of the email/phone box */
+.notify-contact{display:flex;gap:8px}
+#notify .notify-contact select{flex:0 0 auto;width:auto;padding-right:10px;cursor:pointer}
+#notify .notify-contact input{flex:1;min-width:0}
+@media(max-width:480px){.notify-contact{flex-direction:column}#notify .notify-contact select{width:100%}}   /* phones: dropdown above the box */
+#notify .notify-err{color:#ef4444;font-size:.82rem;min-height:1.3em;margin:6px 0 4px;text-align:left}
+#notify .notify-fail{text-align:center;margin:10px 0 0;min-height:0}
+#notify .btn[disabled]{opacity:.6;cursor:wait;transform:none}
+.notify-trap{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}
 #notify .btn{width:100%;justify-content:center}
 .notify-x{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--muted);cursor:pointer;font-size:.85rem}
 .notify-done{padding:10px 0}
