@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vibhav Shreshth — Pre-Sales Consultant</title>
+<meta name="description" content="Vibhav Shreshth — Pre-sales consultant, business analyst and solution seller. MBA, IIM Bodh Gaya.">
+<meta property="og:title" content="Vibhav Shreshth — Pre-Sales Consultant">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@600;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<!-- Apply the saved theme before first paint (prevents a flash of the wrong theme) -->
+<script>try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}</script>
+
+<!-- Styles: base → components → sections → themes → responsive -->
+<link rel="stylesheet" href="assets/css/base/variables.css">
+<link rel="stylesheet" href="assets/css/base/base.css">
+<link rel="stylesheet" href="assets/css/components/loader.css">
+<link rel="stylesheet" href="assets/css/components/navbar.css">
+<link rel="stylesheet" href="assets/css/components/theme-toggle.css">
+<link rel="stylesheet" href="assets/css/components/glitch.css">
+<link rel="stylesheet" href="assets/css/components/widgets.css">
+<link rel="stylesheet" href="assets/css/sections/hero.css">
+<link rel="stylesheet" href="assets/css/sections/logos.css">
+<link rel="stylesheet" href="assets/css/sections/showcase.css">
+<link rel="stylesheet" href="assets/css/sections/work.css">
+<link rel="stylesheet" href="assets/css/sections/experiments.css">
+<link rel="stylesheet" href="assets/css/sections/about.css">
+<link rel="stylesheet" href="assets/css/sections/stack.css">
+<link rel="stylesheet" href="assets/css/sections/quote.css">
+<link rel="stylesheet" href="assets/css/sections/footer.css">
+<link rel="stylesheet" href="assets/css/themes/cyberpunk.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<!-- Scripts run in order after the page is parsed -->
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/loader.js" defer></script>
+<script src="assets/js/theme.js" defer></script>
+<script src="assets/js/navigation.js" defer></script>
+<script src="assets/js/marquee.js" defer></script>
+<script src="assets/js/projects.js" defer></script>
+<script src="assets/js/stack.js" defer></script>
+<script src="assets/js/chat.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<!-- 1. LOADER: counts 000→100 then fades -->
+<div id="loader"><span id="loadNum">000</span></div>
+
+<!-- 2. NAVIGATION -->
+<header>
+  <nav class="nav">
+    <a href="#home" class="logo">vibhav<b>.</b></a>
+    <div class="pill" id="pill">
+      <a href="#home" class="active">Home</a><a href="#work">Work</a><a href="#experiments">Experiments</a><a href="#about">About</a><a href="#stack">Stack</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn primary" href="https://calendly.com" target="_blank" rel="noopener">Book a Call</a>
+      <button class="switch" id="themeBtn" role="switch" aria-checked="true" aria-label="Dark mode"><span class="trk"><span class="ic sun">☀</span><span class="ic moon">☾</span><span class="knob"></span></span></button>
+      <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+</header>
+<div id="mobileMenu"><a href="#home">Home</a><a href="#work">Work</a><a href="#experiments">Experiments</a><a href="#about">About</a><a href="#stack">Stack</a></div>
+
+<!-- 3. HERO -->
+<section id="home">
+  <div class="glow"></div>
+  <div class="wrap">
+    <p class="hero-hi reveal">👋 Hi, I'm Vibhav Shreshth</p>
+    <h1 class="hero-h reveal">I have worked as<br>
+      <span class="roles"><ul><li>Pre-Sales Consultant.</li><li>Solution Seller.</li><li>AI Product Manager.</li><li>Website Designer.</li><li>Frontend Developer.</li><li>PHP Developer.</li><li>Pre-Sales Consultant.</li></ul></span>
+    </h1>
+    <div class="hero-blocks reveal">
+      <div><strong>41 months in pre-sales</strong>Software sales, business analysis and proposal management.</div>
+      <div><strong>I turn needs into solutions</strong>Discovery, BPMN models and React proof-of-concepts.</div>
+      <div><strong>Founder → MBA</strong>Ran a software company, then MBA at IIM Bodh Gaya.</div>
+    </div>
+    <a href="#work" class="btn primary reveal">See my work ↓</a>
+  </div>
+</section>
+
+<!-- 4. LOGO STRIP (social proof) -->
+<div class="logos">
+  <p class="eyebrow">Worked with</p>
+  <div class="marquee"><div class="track" id="track">
+    <span>Axis Infoline</span><span>Dogma Group</span><span>QniPay</span><span>DocsTribe</span><span>QuriousCare</span><span>MyAdvo</span><span>Ubunanny</span><span>Indulge Festival</span>
+  </div></div>
+</div>
+
+<!-- 5. COMPONENT SHOWCASE -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow reveal">How I work</p>
+    <h2 class="title reveal">Turning client needs<br>into clear solutions.</h2>
+    <div class="bento reveal">
+      <div class="tile t-tall"><span class="lbl">Proposal Printer · 80+ sent</span><div class="receipt">PROPOSAL #080<br>———————<br>Discovery ✓<br>Gap analysis ✓<br>Demo ✓<br>Cross-sell ✓<br>———————<br>SIGNED ✦</div></div>
+      <div class="tile"><span class="lbl">Lead conversion · 65%</span><div class="gauge"><i></i></div></div>
+      <div class="tile"><span class="lbl">Lead qualification</span><div class="otp"><b>B</b><b>A</b><b>N</b><b>T</b></div></div>
+      <div class="tile t-wide"><span class="lbl">Pipeline forecast · Dynamics 365</span>
+        <svg viewBox="0 0 300 100" style="width:100%;height:120px"><path d="M0 80 L40 70 L80 75 L120 50 L160 55 L200 30" fill="none" stroke="var(--accent)" stroke-width="3"/><path d="M200 30 L240 25 L300 10" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="6 6" opacity=".6"/></svg></div>
+      <div class="tile"><span class="lbl">90+ client calls</span><div class="candles"><i style="height:40%"></i><i class="d" style="height:60%"></i><i style="height:75%"></i><i style="height:55%"></i><i class="d" style="height:35%"></i><i style="height:90%"></i></div></div>
+      <div class="tile"><span class="lbl">UK · Nepal · India teams</span><div class="lanes"><div><i></i></div><div><i style="animation-delay:.6s"></i></div><div><i style="animation-delay:1.2s"></i></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. WORK -->
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow reveal">Selected projects</p>
+    <h2 class="title reveal">Works.</h2>
+    <div class="filters" id="filters"></div>
+    <p class="count" id="count"></p>
+    <div class="projects" id="projects"></div>
+  </div>
+</section>
+
+<!-- 7. EXPERIMENTS -->
+<section id="experiments">
+  <div class="wrap">
+    <p class="eyebrow reveal">Playground</p>
+    <h2 class="title reveal">Experiments.</h2>
+    <div class="exp reveal">
+      <div class="card"><div class="vis"><div class="chat-in">Summarise this call…</div></div><h3>AI Proposal Assistant</h3><p style="color:var(--muted)">Using AI to analyse discovery-call transcripts and draft tailored proposals with cross-sell ideas.</p><a class="more" href="#">Give it a try ↗</a></div>
+      <div class="card"><div class="vis"><div class="spin"></div></div><h3>This Portfolio</h3><p style="color:var(--muted)">My branding lab — built with Claude to learn how identity, design and code come together.</p><a class="more" href="#home">You're in it ↗</a></div>
+      <div class="card"><div class="vis" style="font-size:3rem">✦</div><h3>Next experiment</h3><p style="color:var(--muted)">Coming soon — the next step in my branding journey.</p><a class="more" href="#">Stay tuned ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div class="reveal">
+      <p class="eyebrow">About</p>
+      <h2 class="title">Ask me<br>anything.</h2>
+      <p style="color:var(--muted)">I'm Vibhav Shreshth, a pre-sales consultant with 41 months across software sales, business analysis and proposal management. I qualify leads, run discovery and demos, answer RFIs/RFPs, and turn client requirements into clear solutions — from BPMN process models to React proof-of-concepts. Before that I founded and ran a software company. MBA from IIM Bodh Gaya, B.E. from Thapar Institute.</p>
+      <p style="margin-top:14px">I also code ✦ design in Figma ✦ run Meta Ads ✦ now learning branding in public.</p>
+      <div class="ask">
+        <span class="eyebrow">Quick answers</span>
+        <form id="askForm"><input id="askIn" placeholder="e.g. What do you do?"><button class="small">Ask</button></form>
+        <div class="chips"><button>What do you do?</button><button>Experience?</button><button>How to contact?</button></div>
+        <p class="ans" id="askAns"></p>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow" style="margin-bottom:20px">Journey</p>
+      <ul class="timeline">
+        <li><span class="yr">Apr 2025 — now</span><b>Pre-Sales Consultant</b>Dogma Group</li>
+        <li><span class="yr">2025</span><b>MBA</b>IIM Bodh Gaya</li>
+        <li><span class="yr">Apr — Jul 2024</span><b>Product Manager Intern</b>DocsTribe AI · Batch'25 topper</li>
+        <li><span class="yr">Feb 2019 — Jan 2020</span><b>Senior Software Developer</b>Axis Infoline Pvt. Ltd.</li>
+        <li><span class="yr">Aug 2016 — Dec 2018</span><b>Director & Software Developer</b>Teematar Innovation Pvt. Ltd.</li>
+        <li><span class="yr">2015</span><b>Front-end Designer (project)</b>Siemens, Gurugram</li>
+        <li><span class="yr">2015</span><b>B.E.</b>Thapar Institute of Engineering & Technology</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 9. STACK -->
+<section id="stack">
+  <div class="wrap">
+    <p class="eyebrow reveal">Tools</p>
+    <h2 class="title reveal">Stack.</h2>
+    <div class="tools reveal" id="tools"></div>
+    <div class="skills reveal">
+      <div><b>Sales & Pre-Sales</b><p>BANT qualification, discovery, solution selling, demos, proposals, RFI/RFP/RFQ, cross-selling, negotiation.</p></div>
+      <div><b>Business Analysis</b><p>BPMN 2.0, AS-IS/TO-BE, gap analysis, RACI, functional & non-functional requirements, workshops, Agile.</p></div>
+      <div><b>CRM & Productivity</b><p>Dynamics 365 Sales Hub & Customer Insights, Microsoft 365, Advanced Excel (macros, pivots).</p></div>
+      <div><b>AI & Prototyping</b><p>Claude, NotebookLM, AI-assisted proposal analysis, React POCs, Figma, Canva.</p></div>
+      <div><b>Marketing & Web</b><p>Meta Ads, Google Ads, A/B testing, SEO, social media, WIX, PHP, MySQL, jQuery.</p></div>
+    </div>
+    <div class="certs reveal">
+      <p class="eyebrow">Certifications</p>
+      <ul>
+        <li>Anthropic — AI Fluency: AI Capabilities & Limitations</li>
+        <li>Microsoft Dynamics 365 — Foundations of Customer Engagement Apps</li>
+        <li>Microsoft Dynamics 365 — Shared Activities & Integration Options</li>
+        <li>Master Digital Marketing: SEO, Google Ads & SMM (2023)</li>
+        <li>Advanced Excel: Macros, Pivot Tables & Analytics (2023)</li>
+        <li>PR for Start-ups: Storytelling, Cold Email & Audience Management (2022)</li>
+        <li>Full-Stack Web Development (PHP, MySQL & jQuery)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 10. QUOTE -->
+<section class="quote">
+  <div class="wrap reveal">
+    <blockquote>“A brand is not what you say it is. It's what they say it is.”</blockquote>
+    <cite>— Marty Neumeier</cite>
+  </div>
+</section>
+
+<!-- 11. FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><div class="avatar">V</div><p style="color:var(--muted);max-width:320px">Pre-sales consultant turning client needs into clear software solutions — and learning branding in public.</p></div>
+      <div><h4>Menu</h4><a href="#home">Home</a><a href="#work">Works</a><a href="#about">About</a><a href="#stack">Stack</a></div>
+      <div><h4>Contact</h4><a href="mailto:shreshth.vibhav@gmail.com">shreshth.vibhav@gmail.com</a><a href="https://linkedin.com" target="_blank">LinkedIn</a><a href="https://github.com" target="_blank">GitHub</a></div>
+    </div>
+    <div class="credit"><span>Designed and built by Vibhav Shreshth</span><span id="yr"></span></div>
+  </div>
+</footer>
+
+<!-- 12. UTILITIES -->
+<div id="glitch"></div>
+<div id="cookie">🍪 This site uses minimal storage to remember your theme.<div><button id="cookieOk">Got it</button></div></div>
+<div id="chatBox"><b>Ask about Vibhav</b><div id="chatLog" style="margin-top:10px"><p>Hi! Ask about Vibhav's work, experience, skills or how to reach him.</p></div><form id="chatForm"><input id="chatIn" placeholder="Type a question…"><button class="small">Send</button></form></div>
+<button id="chatFab">💬 Ask about Vibhav</button>
+
+</body>
+</html>
