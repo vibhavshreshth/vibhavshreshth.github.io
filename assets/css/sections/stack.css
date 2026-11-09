@@ -1,0 +1,11 @@
+/* ========== 10. STACK ========== */
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;margin-bottom:40px}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 10px;text-align:center;font-size:.82rem;filter:grayscale(1);opacity:.6;transition:.3s;cursor:default}
+.tool i{display:block;width:30px;height:30px;border-radius:8px;margin:0 auto 8px;font-style:normal;font-weight:800;color:#fff;line-height:30px}
+.tool:hover{filter:none;opacity:1;transform:translateY(-3px)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.skills div{border-top:2px solid var(--accent);padding-top:14px}
+.skills p{color:var(--muted);font-size:.9rem;margin-top:6px}
+.certs{margin-top:44px}
+.certs ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:14px}
+.certs li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.88rem}

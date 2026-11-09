@@ -1,0 +1,10 @@
+/* ========== 5. LOGO STRIP ========== */
+.logos{padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.logos p{text-align:center;margin-bottom:24px}
+.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
+.track{display:flex;width:max-content;animation:slide var(--dur,30s) linear infinite}
+.track .grp{display:flex;gap:70px;padding-right:70px}
+.marquee:hover .track{animation-play-state:paused}
+.track span{transition:color .2s,opacity .2s}.track span:hover{color:var(--text);opacity:1}
+.track span{font-weight:800;font-size:1.4rem;color:var(--muted);opacity:.65;white-space:nowrap;letter-spacing:-.03em}
+@keyframes slide{to{transform:translateX(-50%)}}

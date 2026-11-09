@@ -1,0 +1,19 @@
+/* ========== 14. SMALL-SCREEN FIXES ========== */
+html,body{overflow-x:clip}
+.proj,.proj>*{min-width:0}
+@media(max-width:600px){
+  section{padding:80px 0}
+  .bento{grid-auto-rows:170px;gap:12px}
+  .otp{gap:5px}.otp b{width:28px;height:38px;font-size:1rem}
+  .proj{padding:18px;gap:22px;border-radius:22px}
+  .proj h3{font-size:1.4rem}
+  .prompt{width:90%;font-size:.75rem}
+  .hero-h{font-size:clamp(2.1rem,10.5vw,3rem)}
+  #cookie{left:12px;right:12px;bottom:72px;max-width:none;padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:.8rem}
+  #cookie div{margin-top:0}
+  section[id]{scroll-margin-top:70px}
+  #chatFab{right:12px;bottom:12px}
+  #chatBox{right:12px;bottom:70px}
+  .quote{padding:90px 0}
+  .credit{flex-direction:column}
+}

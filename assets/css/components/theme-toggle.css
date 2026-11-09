@@ -1,0 +1,11 @@
+/* ========== 17. LIGHT / DARK TOGGLE SWITCH ========== */
+.switch{background:none;border:0;cursor:pointer;padding:0;display:flex}
+.switch .trk{position:relative;width:62px;height:32px;border-radius:999px;background:var(--card);border:1px solid var(--line);transition:background .3s,border-color .3s}
+.switch .ic{position:absolute;top:50%;transform:translateY(-50%);font-size:.8rem;color:var(--muted);line-height:1}
+.switch .sun{left:9px}.switch .moon{right:9px}
+.switch .knob{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:var(--accent);
+  box-shadow:0 2px 6px rgba(0,0,0,.3);transition:transform .35s cubic-bezier(.6,-0.3,.3,1.4),background .3s}
+.switch[aria-checked="true"] .knob{transform:translateX(30px)}
+.switch:focus-visible .trk{outline:2px solid var(--accent);outline-offset:3px}
+[data-theme="cyber"] .switch .trk,[data-theme="cyber"] .switch .knob{border-radius:0}
+[data-theme="cyber"] .switch .knob{background:var(--neon2);box-shadow:0 0 12px var(--neon2)}

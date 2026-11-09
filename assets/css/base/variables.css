@@ -1,0 +1,13 @@
+/* Design tokens
+   Brand colours, fonts and sizes for the dark (default) and light themes. */
+
+:root{
+  --bg:#0b0b0c; --bg2:#141416; --card:#18181b; --line:#27272a;
+  --text:#f4f4f5; --muted:#a1a1aa; --accent:#c6ff3d; --accent-ink:#0b0b0c;
+  --radius:18px; --max:1180px;
+  --font:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+}
+[data-theme="light"]{
+  --bg:#fafaf9; --bg2:#f1f1ef; --card:#ffffff; --line:#e4e4e7;
+  --text:#18181b; --muted:#52525b; --accent:#4f46e5; --accent-ink:#ffffff;
+}

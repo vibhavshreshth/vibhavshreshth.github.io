@@ -1,0 +1,99 @@
+/* =====================================================================
+   16. CYBERPUNK MODE — applies when the toggle is ON (data-theme="cyber")
+   ===================================================================== */
+[data-theme="cyber"]{
+  --bg:#05010d; --bg2:#0c0620; --card:rgba(13,7,32,.82); --line:rgba(0,240,255,.22);
+  --text:#e9f6ff; --muted:#8c9ccc; --accent:#00f0ff; --accent-ink:#05010d;
+  --neon2:#ff2bd6; --neon3:#f7ff3c;
+  --mono:'Share Tech Mono',monospace; --display:'Orbitron','Inter',sans-serif;
+}
+[data-theme="cyber"] body{background:
+  radial-gradient(ellipse 80% 50% at 15% 0%,rgba(255,43,214,.16),transparent 60%),
+  radial-gradient(ellipse 70% 50% at 100% 30%,rgba(0,240,255,.12),transparent 60%),var(--bg)}
+[data-theme="cyber"] body::before{content:"";position:fixed;left:-50%;right:-50%;bottom:-10%;height:60vh;z-index:-1;pointer-events:none;
+  background:linear-gradient(transparent 0 calc(100% - 1px),rgba(255,43,214,.35) 0) 0 0/100% 48px,
+             linear-gradient(90deg,transparent 0 calc(100% - 1px),rgba(255,43,214,.35) 0) 0 0/48px 100%;
+  transform:perspective(420px) rotateX(62deg);transform-origin:bottom;
+  mask-image:linear-gradient(to top,#000 10%,transparent 85%);-webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);
+  animation:gridmove 3s linear infinite}
+@keyframes gridmove{to{background-position:0 48px,0 0}}
+[data-theme="cyber"] body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 60%,rgba(0,0,0,.55));
+  animation:flicker 6s infinite}
+@keyframes flicker{0%,97%,100%{opacity:1}98%{opacity:.75}99%{opacity:.9}}
+/* type */
+[data-theme="cyber"] .logo,[data-theme="cyber"] .hero-h,[data-theme="cyber"] h2.title,[data-theme="cyber"] .proj h3,
+[data-theme="cyber"] .exp h3,[data-theme="cyber"] .quote blockquote,[data-theme="cyber"] #mobileMenu{font-family:var(--display);text-transform:uppercase;letter-spacing:.02em}
+[data-theme="cyber"] .hero-h{font-size:clamp(2rem,6.4vw,5rem)}
+[data-theme="cyber"] .logo b{color:var(--neon2);text-shadow:0 0 10px var(--neon2)}
+[data-theme="cyber"] .eyebrow{color:var(--neon2);text-shadow:0 0 8px rgba(255,43,214,.6)}
+[data-theme="cyber"] .eyebrow::before{content:"// "}
+[data-theme="cyber"] .roles{color:var(--accent);text-shadow:0 0 6px var(--accent),0 0 24px rgba(0,240,255,.6)}
+[data-theme="cyber"] h2.title,[data-theme="cyber"] .quote blockquote{text-shadow:2px 0 var(--neon2),-2px 0 var(--accent);animation:tglitch 4s infinite steps(1)}
+@keyframes tglitch{0%,88%,100%{text-shadow:2px 0 var(--neon2),-2px 0 var(--accent);transform:none;clip-path:none}
+  90%{text-shadow:-4px 0 var(--neon2),4px 0 var(--accent);transform:translateX(3px);clip-path:inset(10% 0 55% 0)}
+  92%{text-shadow:4px 0 var(--neon2),-4px 0 var(--neon3);transform:translateX(-3px);clip-path:inset(60% 0 5% 0)}
+  94%{text-shadow:2px 0 var(--neon2),-2px 0 var(--accent);transform:none;clip-path:none}}
+[data-theme="cyber"] .hero-blocks div{border-top-color:var(--neon2)}
+[data-theme="cyber"] .hero-blocks strong{color:var(--accent)}
+[data-theme="cyber"] .glow{background:var(--neon2);opacity:.22}
+/* cut-corner neon panels */
+[data-theme="cyber"] .tile,[data-theme="cyber"] .proj,[data-theme="cyber"] .exp .card,[data-theme="cyber"] .ask,[data-theme="cyber"] .tool,
+[data-theme="cyber"] #cookie,[data-theme="cyber"] #chatBox,[data-theme="cyber"] .certs li{border-radius:0;border-color:var(--line);
+  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px));
+  box-shadow:inset 0 0 0 1px rgba(0,240,255,.15),inset 0 0 30px rgba(0,240,255,.05)}
+[data-theme="cyber"] .tile:hover,[data-theme="cyber"] .exp .card:hover,[data-theme="cyber"] .proj:hover{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent),inset 0 0 40px rgba(0,240,255,.12)}
+[data-theme="cyber"] .stage,[data-theme="cyber"] .exp .vis{border-radius:0;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+[data-theme="cyber"] .stage::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,43,214,.35),rgba(0,240,255,.25));mix-blend-mode:color;pointer-events:none}
+[data-theme="cyber"] .prompt{border-radius:0;border-color:var(--accent);box-shadow:0 0 18px rgba(0,240,255,.35);z-index:1}
+[data-theme="cyber"] .prompt .bar i,[data-theme="cyber"] .caret{background:var(--neon2);box-shadow:0 0 8px var(--neon2)}
+/* buttons */
+[data-theme="cyber"] .btn{border-radius:0;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);padding:12px 26px}
+[data-theme="cyber"] .btn.primary{background:var(--accent);box-shadow:0 0 22px rgba(0,240,255,.6)}
+[data-theme="cyber"] .btn.primary:hover{background:var(--neon2);color:#fff}
+[data-theme="cyber"] .pill{border-radius:0;background:rgba(5,1,13,.7)}
+[data-theme="cyber"] .pill a{border-radius:0;font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em}
+[data-theme="cyber"] .pill a.active{color:var(--accent);background:rgba(0,240,255,.1);box-shadow:inset 0 -2px 0 var(--accent)}
+[data-theme="cyber"] .icon-btn{border-radius:0;border-color:var(--accent);color:var(--accent);background:transparent}
+[data-theme="cyber"] .filters button{border-radius:0;font-family:var(--mono);text-transform:uppercase}
+[data-theme="cyber"] .filters button.on{background:var(--neon2);color:#fff;border-color:var(--neon2);box-shadow:0 0 16px var(--neon2)}
+[data-theme="cyber"] .tags span{border-radius:0;color:var(--accent);border-color:rgba(0,240,255,.4)}
+[data-theme="cyber"] .more{border-bottom-color:var(--neon2)}
+[data-theme="cyber"] .proj li:before{color:var(--neon2)}
+[data-theme="cyber"] #chatFab,[data-theme="cyber"] .small,[data-theme="cyber"] #cookie button{border-radius:0;font-family:var(--mono);text-transform:uppercase}
+[data-theme="cyber"] #chatFab{background:var(--neon2);color:#fff;box-shadow:0 0 24px var(--neon2)}
+[data-theme="cyber"] .small,[data-theme="cyber"] #cookie button{background:var(--accent);color:var(--accent-ink)}
+[data-theme="cyber"] .ask input,[data-theme="cyber"] #chatBox input{border-radius:0;border-color:rgba(0,240,255,.35);font-family:var(--mono)}
+[data-theme="cyber"] .chips button{border-radius:0;border-color:rgba(255,43,214,.5);color:var(--neon2)}
+[data-theme="cyber"] #chatLog p{border-radius:0;border-left:2px solid var(--accent)}
+[data-theme="cyber"] #chatLog p.me{background:var(--neon2);color:#fff;border-left:0}
+[data-theme="cyber"] header.scrolled{background:rgba(5,1,13,.75);border-bottom-color:rgba(255,43,214,.4);box-shadow:0 1px 20px rgba(255,43,214,.25)}
+/* widgets */
+[data-theme="cyber"] .gauge{border-color:var(--accent);box-shadow:0 0 20px rgba(0,240,255,.4)}
+[data-theme="cyber"] .otp b{border-radius:0;border-color:var(--neon2);color:var(--neon2);text-shadow:0 0 8px var(--neon2)}
+[data-theme="cyber"] .receipt{border-radius:0;color:var(--accent)}
+[data-theme="cyber"] .candles i{background:var(--accent);box-shadow:0 0 8px var(--accent)}
+[data-theme="cyber"] .candles i.d{background:var(--neon2);box-shadow:0 0 8px var(--neon2)}
+[data-theme="cyber"] .lanes div,[data-theme="cyber"] .lanes div i{border-radius:0}
+[data-theme="cyber"] .lanes div i{background:linear-gradient(90deg,var(--neon2),var(--accent))}
+[data-theme="cyber"] .spin{border-radius:0;background:linear-gradient(135deg,var(--accent),var(--neon2));box-shadow:0 0 30px var(--neon2)}
+[data-theme="cyber"] .chat-in{border-radius:0;border-color:var(--accent);font-family:var(--mono)}
+[data-theme="cyber"] svg path{stroke:var(--accent);filter:drop-shadow(0 0 4px var(--accent))}
+/* rest */
+[data-theme="cyber"] .logos{border-color:rgba(255,43,214,.35);background:rgba(255,43,214,.04)}
+[data-theme="cyber"] .track span{font-family:var(--display);color:var(--accent);opacity:.6}
+[data-theme="cyber"] .timeline{border-left-color:var(--neon2)}
+[data-theme="cyber"] .timeline li:before{border-radius:0;transform:rotate(45deg);background:var(--neon2);box-shadow:0 0 10px var(--neon2)}
+[data-theme="cyber"] .timeline b{color:var(--accent)}
+[data-theme="cyber"] .tool:hover{box-shadow:inset 0 0 0 1px var(--accent),0 0 18px rgba(0,240,255,.4)}
+[data-theme="cyber"] .tool i{border-radius:0}
+[data-theme="cyber"] .skills div{border-top-color:var(--neon2)}
+[data-theme="cyber"] .skills b{color:var(--accent);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em}
+[data-theme="cyber"] .quote cite{color:var(--neon3);font-family:var(--mono)}
+[data-theme="cyber"] footer{border-top-color:rgba(255,43,214,.4)}
+[data-theme="cyber"] .avatar{border-radius:0;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
+[data-theme="cyber"] .foot a:hover{color:var(--neon2);text-shadow:0 0 8px var(--neon2)}
+[data-theme="cyber"] #loader span{color:var(--accent);text-shadow:0 0 12px var(--accent),3px 0 var(--neon2)}
+[data-theme="cyber"] #mobileMenu a{color:var(--accent);text-shadow:0 0 12px rgba(0,240,255,.6)}
+[data-theme="cyber"] ::selection{background:var(--neon2);color:#fff}
+@media(max-width:600px){[data-theme="cyber"] h2.title{font-size:clamp(1.8rem,9vw,2.6rem)}}

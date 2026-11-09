@@ -1,0 +1,4 @@
+/* ========== 2. LOADER ========== */
+#loader{position:fixed;inset:0;background:var(--bg);z-index:100;display:flex;align-items:flex-end;justify-content:flex-end;padding:40px;transition:opacity .6s,visibility .6s}
+#loader span{font-family:var(--mono);font-size:clamp(3rem,12vw,9rem);font-weight:500;letter-spacing:-.04em}
+#loader.done{opacity:0;visibility:hidden}

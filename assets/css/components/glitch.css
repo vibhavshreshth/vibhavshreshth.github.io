@@ -1,0 +1,12 @@
+/* ========== 15. THEME-SWITCH GLITCH ("system crash") ========== */
+#glitch{position:fixed;inset:0;z-index:95;pointer-events:none;display:none;overflow:hidden}
+#glitch.on{display:block}
+#glitch .slice{position:absolute;left:-10%;right:-10%;backdrop-filter:invert(1) hue-rotate(var(--h,90deg)) saturate(4);-webkit-backdrop-filter:invert(1) hue-rotate(var(--h,90deg)) saturate(4)}
+#glitch .bar{position:absolute;left:0;right:0;mix-blend-mode:difference}
+#glitch .noise{position:absolute;inset:-50%;opacity:.35;background:
+  repeating-linear-gradient(0deg,rgba(255,255,255,.18) 0 1px,transparent 1px 2px),
+  repeating-linear-gradient(90deg,rgba(0,0,0,.4) 0 2px,transparent 2px 5px)}
+#glitch .flash{position:absolute;inset:0}
+body.glitching>*:not(#glitch){transform:var(--gt,none);filter:var(--gf,none)}
+body.glitching{overflow:hidden}
+body.glitching,body.glitching *{transition:none!important}

@@ -1,0 +1,4 @@
+/* ========== 11. QUOTE ========== */
+.quote{text-align:center;padding:140px 0}
+.quote blockquote{font-size:clamp(1.8rem,4.5vw,3.4rem);font-weight:700;letter-spacing:-.03em;line-height:1.15;max-width:900px;margin:0 auto}
+.quote cite{display:block;margin-top:20px;font-style:normal;color:var(--muted)}

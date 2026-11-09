@@ -1,0 +1,14 @@
+/* ========== 9. ABOUT ========== */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}
+@media(max-width:900px){.about{grid-template-columns:minmax(0,1fr)}}
+.ask{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:24px}
+.ask form{display:flex;gap:8px;margin-top:12px}
+.ask input{flex:1;min-width:0;background:var(--bg2);border:1px solid var(--line);color:var(--text);padding:12px 16px;border-radius:999px;font:inherit}
+.ask .ans{margin-top:12px;font-size:.92rem;color:var(--muted);min-height:1.4em}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chips button{background:none;border:1px dashed var(--line);color:var(--muted);border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.78rem}
+.timeline{list-style:none;border-left:1px solid var(--line);padding-left:26px}
+.timeline li{position:relative;padding-bottom:26px}
+.timeline li:before{content:"";position:absolute;left:-31px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.timeline .yr{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.timeline b{display:block}
