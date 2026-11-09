@@ -1,0 +1,6 @@
+.quote { text-align: center; padding: 140px 0; }
+.quote blockquote {
+  font-size: clamp(1.8rem, 4.6vw, 3.6rem); font-weight: 800; line-height: 1.15;
+  letter-spacing: -.035em; max-width: 960px; margin: 0 auto;
+}
+.quote cite { display: block; margin-top: 24px; font-style: normal; font-family: var(--mono); color: var(--muted); }

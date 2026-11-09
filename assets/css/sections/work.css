@@ -1,0 +1,24 @@
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.filters button {
+  padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line);
+  font-size: .9rem; color: var(--muted); transition: all .25s;
+}
+.filters button:hover { color: var(--text); border-color: var(--text); }
+.filters button.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+.count { font-family: var(--mono); font-size: .8rem; color: var(--muted); margin-bottom: 28px; }
+
+.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.project {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 26px; display: flex; flex-direction: column; gap: 14px;
+  animation: pop .5s var(--ease) both;
+  transition: transform .35s var(--ease), border-color .35s;
+}
+.project:hover { transform: translateY(-4px); border-color: var(--accent); }
+@keyframes pop { from { opacity: 0; transform: translateY(16px) scale(.98); } }
+.project .meta { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.project h3 { font-size: 1.4rem; letter-spacing: -.02em; line-height: 1.2; }
+.project p { color: var(--muted); font-size: .95rem; }
+.project .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.project .tags span { font-size: .78rem; padding: 4px 10px; border-radius: 999px; background: var(--bg-2); color: var(--muted); }
+.project .stat { font-weight: 700; color: var(--accent); }
