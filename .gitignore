@@ -11,3 +11,6 @@ desktop.ini
 # Logs & temp
 *.log
 tmp/
+
+# Local preview server settings (not part of the site)
+.claude/

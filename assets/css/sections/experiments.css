@@ -1,7 +1,11 @@
 /* ========== 8. EXPERIMENTS ========== */
 .exp{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:900px){.exp{grid-template-columns:1fr}}
-.exp .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:14px}
+/* Tablet: still three across, more compact; phone: one per row */
+@media(max-width:900px){.exp{gap:14px}.exp .card{padding:16px}.exp .vis{height:120px}.exp h3{font-size:1.05rem}.exp .card p{font-size:.86rem}}
+@media(max-width:640px){.exp{grid-template-columns:1fr}.exp .vis{height:150px}}
+.exp .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:14px;scroll-margin-top:110px;transition:border-color .4s,box-shadow .4s}
+/* The card picked from the Playground menu is outlined */
+.exp .card:target{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 30%,transparent)}
 .exp .vis{height:170px;border-radius:12px;background:var(--bg2);display:grid;place-items:center;overflow:hidden}
 .spin{width:80px;height:80px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#7c3aed);animation:turn 6s linear infinite;transform-style:preserve-3d}
 @keyframes turn{to{transform:perspective(400px) rotateY(360deg) rotateX(15deg)}}

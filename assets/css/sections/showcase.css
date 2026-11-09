@@ -1,20 +1,47 @@
 /* ========== 6. COMPONENT SHOWCASE (bento grid) ========== */
-.bento{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px}
+.bento{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(3,1fr);grid-auto-rows:minmax(200px,auto);gap:16px}
 .tile{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s}
 .tile:hover{transform:scale(1.02)}
 .tile .lbl{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
 .t-wide{grid-column:span 2}.t-tall{grid-row:span 2}
+.t-left{text-align:left}
 @media(max-width:820px){.bento{grid-template-columns:repeat(2,1fr)}}
-.gauge{width:110px;height:110px;border-radius:50%;border:2px solid var(--line);overflow:hidden;position:relative;margin:auto}
-.gauge i{position:absolute;bottom:0;left:-50%;width:200%;height:62%;background:var(--accent);border-radius:40%;animation:wave 6s linear infinite;opacity:.85}
-@keyframes wave{to{transform:rotate(360deg)}}
-.otp{display:flex;gap:8px;margin:auto}
-.otp b{width:38px;height:48px;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center;font-family:var(--mono);font-size:1.3rem;background:var(--bg2)}
-.receipt{white-space:nowrap;overflow:hidden;background:var(--bg2);border-radius:10px;padding:12px;font-family:var(--mono);font-size:.72rem;color:var(--muted);animation:print 4s ease-in-out infinite alternate}
-@keyframes print{from{transform:translateY(-30%)}to{transform:translateY(0)}}
-.candles{display:flex;align-items:flex-end;gap:8px;height:120px;margin:auto}
-.candles i{width:12px;border-radius:3px;background:var(--accent)}
-.candles i.d{background:#ef4444}
-.lanes div{height:12px;border-radius:6px;background:var(--bg2);margin:8px 0;overflow:hidden}
-.lanes div i{display:block;height:100%;background:var(--accent);border-radius:6px;animation:lane 3s ease-in-out infinite alternate}
-@keyframes lane{from{width:10%}to{width:90%}}
+/* Desktop: three tiles in one row, the Productivity / AI quadrants full width underneath */
+@media(min-width:821px){.t-tall{grid-row:auto}.pa{grid-column:1/-1}.bento .gc{width:170px;height:170px}}
+/* Golden Circle: the rings revolve, the words stay still. Layers are masks, so the colour follows the theme accent. */
+.gc{position:relative;width:116px;height:116px;margin:auto}
+.gc i{position:absolute;inset:0;background:var(--accent);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.gc .o{-webkit-mask-image:url(../../img/golden-circle/ring-outer.png);mask-image:url(../../img/golden-circle/ring-outer.png);transform-origin:49.9% 49.3%;animation:gc-spin 24s linear infinite}
+.gc .m{-webkit-mask-image:url(../../img/golden-circle/ring-middle.png);mask-image:url(../../img/golden-circle/ring-middle.png);transform-origin:49.5% 48.7%;animation:gc-spin 18s linear infinite reverse}
+.gc .n{-webkit-mask-image:url(../../img/golden-circle/ring-inner.png);mask-image:url(../../img/golden-circle/ring-inner.png);transform-origin:49.4% 48.2%;animation:gc-spin 12s linear infinite}
+.gc .w{-webkit-mask-image:url(../../img/golden-circle/words.png);mask-image:url(../../img/golden-circle/words.png)}
+@keyframes gc-spin{to{transform:rotate(360deg)}}
+.gc-credit{font-size:.75rem;color:var(--muted);align-self:center;border-bottom:1px solid var(--accent);line-height:1.3}
+/* The whole Golden Circle card is the link */
+.gc-card{cursor:pointer}
+.gc-card:hover{border-color:var(--accent)}
+.gc-card:hover .gc-credit{color:var(--text)}
+/* How the three tools fit together, plus the quote */
+.how3 ul{list-style:none;display:grid;gap:6px}
+.how3 li{font-size:.9rem;line-height:1.35;color:var(--muted)}
+.how3 b{color:var(--text)}
+.imp-quote{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+/* Tools of Productivity list */
+.pt{list-style:none;display:grid;gap:12px;flex:1;align-content:space-evenly;margin-top:8px}
+.pt li{font-size:.95rem;line-height:1.4;color:var(--muted)}
+.pt b{display:block;font-size:1.05rem;color:var(--text)}
+/* Productivity / AI card */
+.quad{position:relative;flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;margin-top:8px}
+.q{padding:10px 14px;font-size:.85rem;line-height:1.35;color:var(--muted)}
+.q>b{display:block;font-size:.98rem;color:var(--text)}
+.q ul{list-style:none;display:grid;gap:5px;margin-top:6px}
+.q li{position:relative;padding-left:14px}
+.q li:before{content:"·";position:absolute;left:2px;font-weight:800;color:var(--accent)}
+.q li b{font-weight:600;color:var(--text)}
+/* Clockwise order. Inner padding keeps text clear of the centre arrow. */
+.q1{grid-area:1/1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding-right:48px}
+.q2{grid-area:1/2;border-bottom:1px solid var(--line);padding-left:48px}
+.q3{grid-area:2/2;padding-left:48px}
+.q4{grid-area:2/1;border-right:1px solid var(--line);padding-right:48px}
+.q-cycle{position:absolute;left:50%;top:50%;width:60px;height:60px;transform:translate(-50%,-50%);border-radius:50%;background:var(--card);color:var(--accent);padding:4px}
+.q-cycle svg{display:block;width:100%;height:100%;animation:gc-spin 14s linear infinite}

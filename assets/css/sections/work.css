@@ -1,24 +1,82 @@
 /* ========== 7. WORK ========== */
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.filters button{background:var(--card);border:1px solid var(--line);color:var(--muted);padding:9px 16px;border-radius:999px;cursor:pointer;font:inherit;font-size:.88rem}
-.filters button sup{font-family:var(--mono);margin-left:4px}
-.filters button.on{background:var(--text);color:var(--bg)}
-.count{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-bottom:28px}
-.projects{display:grid;gap:28px}
-.proj{display:grid;grid-template-columns:1.15fr 1fr;gap:36px;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:28px;align-items:center}
-.proj.hide{display:none}
-@media(max-width:900px){.proj{grid-template-columns:1fr}}
-.stage{aspect-ratio:4/3;border-radius:20px;position:relative;overflow:hidden;display:grid;place-items:center}
-.prompt{width:82%;background:rgba(10,10,12,.82);backdrop-filter:blur(8px);color:#f4f4f5;border-radius:16px;padding:18px;font-family:var(--mono);font-size:.82rem;border:1px solid rgba(255,255,255,.1)}
-.prompt .bar{height:4px;border-radius:2px;background:rgba(255,255,255,.12);margin-top:14px;overflow:hidden}
-.prompt .bar i{display:block;height:100%;width:0;background:#c6ff3d}
-.caret{display:inline-block;width:7px;height:1em;background:#c6ff3d;vertical-align:-2px;animation:blink 1s step-end infinite}
-@keyframes blink{50%{opacity:0}}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+/* Sticky filter bar. --hd (top menu height) and --wf (this bar's height) are kept up to date by projects.js.
+   While stuck it drops its labels to take less room. */
+#work{--hd:80px;--wf:0px}
+.work-filters{position:sticky;top:var(--hd);z-index:30;background:var(--bg);margin:0 -24px 28px;padding:8px 24px 0;transition:box-shadow .2s}
+.work-filters.stuck{border-bottom:1px solid var(--line);box-shadow:0 10px 24px -14px rgba(0,0,0,.35)}
+.work-filters.stuck .f-lbl,.work-filters.stuck .tl-strip small{display:none}
+.work-filters.stuck .tl-strip button{padding-bottom:0}
+.work-filters.stuck .fstrip{margin-bottom:4px}
+.work-filters.stuck .count{margin-bottom:8px}
+/* Filter strips: one row each that scrolls sideways. The auto margins centre a row that fits
+   and let a row that doesn't start at its left edge. The edges fade to hint there's more. */
+.f-lbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.fstrip{position:relative;display:flex;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:thin;padding:6px 24px 10px;margin-bottom:12px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
+.fstrip>:first-child{margin-left:auto}
+.fstrip>:last-child{margin-right:auto}
+.fstrip button{flex:none;scroll-snap-align:center;cursor:pointer;font:inherit}
+
+/* Timeline strip: the Work section's line and dots, turned sideways */
+.tl-strip{gap:0}
+.tl-strip button{position:relative;background:none;border:0;color:var(--muted);padding:24px 16px 4px;min-width:118px;font-size:.85rem;transition:color .2s}
+.tl-strip button:before{content:"";position:absolute;top:10px;left:0;right:0;height:1px;background:var(--line)}
+.tl-strip button:first-child:before{left:50%}
+.tl-strip button:last-child:before{right:50%}
+.tl-strip button:after{content:"";position:absolute;top:5px;left:50%;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;box-sizing:border-box;border:2px solid var(--accent);background:var(--bg);transition:transform .2s,background .2s}
+.tl-strip button:hover:after{transform:scale(1.25)}
+.tl-strip button.on{color:var(--text)}
+.tl-strip button.on:after{background:var(--accent);transform:scale(1.3);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 25%,transparent)}
+.tl-strip b{display:block;font-weight:600;white-space:nowrap}
+.tl-strip small{display:block;font-family:var(--mono);font-size:.68rem;white-space:nowrap;margin-top:2px}
+.tl-strip small.intern{display:inline-block;margin:4px 0 0}
+
+/* Skill strip: chips in one row that scrolls sideways */
+.skill-strip button{background:var(--card);border:1px solid var(--line);color:var(--muted);padding:7px 14px;border-radius:999px;font-size:.82rem;white-space:nowrap;transition:.2s}
+.skill-strip button:hover{color:var(--text)}
+.skill-strip button.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+
+/* Internship badge, used in the Timeline and the Work section */
+.intern{display:inline-block;margin:2px 0 4px 8px;padding:1px 8px;border:1px solid var(--accent);border-radius:999px;font-family:var(--mono);font-size:.66rem;color:var(--accent);vertical-align:1px}
+.stop-rail .intern{margin:0 0 6px}
+.count{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-bottom:14px}
+.f-reset{background:none;border:1px solid var(--accent);color:var(--text);border-radius:999px;padding:4px 14px;font:inherit;font-size:.78rem;cursor:pointer}
+.f-reset:disabled{border-color:var(--line);color:var(--muted);opacity:.6;cursor:default}
+
+/* One continuous line with a dot per job, matching the Timeline */
+.projects{display:grid;gap:40px;text-align:left;border-left:1px solid var(--line);padding-left:26px}
+.stop{position:relative;display:grid;grid-template-columns:210px minmax(0,1fr);gap:28px;scroll-margin-top:calc(var(--hd) + var(--wf) + 16px)}
+.stop.hide,.proj.hide{display:none}
+.stop:before{content:"";position:absolute;left:-31px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.stop-rail{position:sticky;top:calc(var(--hd) + var(--wf) + 16px);align-self:start}
+.stop-rail .yr{display:block;font-family:var(--mono);font-size:.76rem;color:var(--muted);margin-bottom:4px}
+.stop-rail b{display:block;font-size:1.05rem;line-height:1.25}
+.stop:target .stop-rail b{color:var(--accent)}
+.stop-org{display:block;margin-top:4px;color:var(--muted);font-size:.9rem}
+.stop-more{display:block;margin-top:4px;color:var(--muted);font-size:.82rem}
+.dur{white-space:nowrap}
+/* Education and the CAT years: no cards, so the rail takes the full row */
+.stop.no-work{grid-template-columns:minmax(0,1fr)}
+.stop.no-work .stop-work{display:none}
+/* Something that happened during the entry above it, e.g. an internship during the MBA: a smaller, hollow dot */
+.stop.during:before{left:-30px;width:7px;height:7px;background:var(--bg);border:1px solid var(--accent)}
+.stop-work{display:grid;gap:16px}
+
+/* A text card: what it was on the left, what came of it on the right */
+.proj{display:grid;grid-template-columns:1fr 1fr;gap:28px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.proj h3{font-size:1.25rem;letter-spacing:-.02em;line-height:1.2}
+.meta{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin:6px 0 10px}
+.proj-d{color:var(--muted);font-size:.93rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .tags span{font-size:.72rem;font-family:var(--mono);border:1px solid var(--line);padding:3px 10px;border-radius:999px;color:var(--muted)}
-.proj h3{font-size:1.7rem;letter-spacing:-.03em;line-height:1.15}
-.meta{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin:8px 0 14px}
-.proj ul{list-style:none;margin:16px 0 22px;display:grid;gap:8px}
-.proj li{padding-left:22px;position:relative;font-size:.93rem}
+.tags .cat{border-color:var(--accent);color:var(--accent)}   /* the filter categories; plain tags are skills */
+.proj ul{list-style:none;display:grid;gap:8px;align-content:start}
+.proj li{padding-left:22px;position:relative;font-size:.92rem}
 .proj li:before{content:"→";position:absolute;left:0;color:var(--accent)}
 .more{font-weight:600;border-bottom:1px solid var(--accent)}
+
+@media(max-width:1150px){.proj{grid-template-columns:minmax(0,1fr);gap:16px}}
+@media(max-width:900px){
+  .stop{grid-template-columns:minmax(0,1fr);gap:14px}
+  .stop-rail{position:static}
+}

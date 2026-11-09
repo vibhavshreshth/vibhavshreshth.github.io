@@ -3,11 +3,19 @@ html,body{overflow-x:clip}
 .proj,.proj>*{min-width:0}
 @media(max-width:600px){
   section{padding:80px 0}
-  .bento{grid-auto-rows:170px;gap:12px}
-  .otp{gap:5px}.otp b{width:28px;height:38px;font-size:1rem}
-  .proj{padding:18px;gap:22px;border-radius:22px}
-  .proj h3{font-size:1.4rem}
-  .prompt{width:90%;font-size:.75rem}
+  .bento{grid-auto-rows:minmax(170px,auto);gap:12px}
+  .t-tall,.gc-card,.how3{grid-column:span 2}
+  .t-tall{grid-row:auto}
+  .how3{gap:14px}
+  /* Quadrants stack in reading order; the cycle arrow closes the loop underneath */
+  .quad{grid-template-columns:1fr;grid-template-rows:none}
+  .q{grid-area:auto;padding:12px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .q-cycle{position:static;transform:none;width:46px;height:46px;padding:3px;margin:12px auto 0}
+  .gc{width:88px;height:88px}
+  .proj{padding:18px}
+  .projects{padding-left:18px}
+  .stop:before{left:-23px}
+  .stop.during:before{left:-22px}
   .hero-h{font-size:clamp(2.1rem,10.5vw,3rem)}
   #cookie{left:12px;right:12px;bottom:72px;max-width:none;padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:.8rem}
   #cookie div{margin-top:0}
@@ -15,5 +23,28 @@ html,body{overflow-x:clip}
   #chatFab{right:12px;bottom:12px}
   #chatBox{right:12px;bottom:70px}
   .quote{padding:90px 0}
-  .credit{flex-direction:column}
 }
+
+/* ========== 16. CENTRED LAYOUT (all screen sizes) ========== */
+section{text-align:center}   /* the footer keeps its own left-aligned columns */
+
+/* Nav pill in the true middle of the bar; logo stays left, actions stay right */
+@media(min-width:821px){
+  .nav{display:grid;grid-template-columns:1fr auto 1fr;gap:16px}
+  .nav-right{justify-self:end}
+}
+
+/* Hero */
+.hero-avatar{margin-inline:auto}
+.roles li{margin-inline:auto}
+
+/* Rows of chips and buttons */
+.chips{justify-content:center}
+
+/* Grids become wrapping rows so a short last row is centred too */
+.certs ul{display:flex;flex-wrap:wrap;justify-content:center}
+.certs li{flex:0 1 340px}
+@media(max-width:900px){.certs li{flex-basis:300px}}   /* tablet: two per row */
+
+/* Cards */
+.exp .more{align-self:center}

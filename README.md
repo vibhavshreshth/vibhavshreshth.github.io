@@ -9,8 +9,9 @@ Plain HTML, CSS and JavaScript. No frameworks, no build step, no cost.
 - Light / dark theme switch with a glitch → cyberpunk → new-theme transition
 - Rotating hero titles that auto-fit any screen
 - Infinite "Worked with" logo marquee
-- Filterable project cards with an animated prompt demo
-- "Ask me anything" box and chat bubble (keyword answers, no server)
+- Work Timeline: every career and education stop, with projects, filterable by stop and by skill
+- "Ask me anything" box (keyword answers, no server)
+- "Notify Me!" contact form (not connected yet; see `assets/js/notify.js`)
 - Fully responsive (320px phones → wide desktops), respects saved theme
 
 ## Project structure
@@ -28,23 +29,24 @@ vibhav-portfolio/
 │   │   │   ├── navbar.css
 │   │   │   ├── theme-toggle.css
 │   │   │   ├── glitch.css
-│   │   │   └── widgets.css    # Cookie notice, chat bubble
+│   │   │   └── widgets.css    # Cookie notice, Notify Me! form
 │   │   ├── sections/          # One file per page section
 │   │   │   ├── hero.css  logos.css  showcase.css  work.css
-│   │   │   ├── experiments.css  about.css  stack.css
+│   │   │   ├── experiments.css  about.css  certificates.css
 │   │   │   └── quote.css  footer.css
 │   │   ├── themes/
 │   │   │   └── cyberpunk.css  # Shown during the theme transition
 │   │   └── responsive.css     # Small-screen overrides (loaded last)
 │   ├── js/
-│   │   ├── data.js            # ✏️ Projects, tools and chat answers — edit content here
+│   │   ├── data.js            # ✏️ Projects and chat answers — edit content here
 │   │   ├── loader.js
 │   │   ├── theme.js           # Theme switch + transition
 │   │   ├── navigation.js      # Header, mobile menu, active link, reveal
 │   │   ├── marquee.js
-│   │   ├── projects.js
-│   │   ├── stack.js
+│   │   ├── timeline.js        # Live duration of the current job
+│   │   ├── projects.js        # Work Timeline section and its filters
 │   │   ├── chat.js
+│   │   ├── notify.js          # Notify Me! form
 │   │   └── main.js            # Cookie notice, footer year
 │   └── img/
 │       └── favicon.svg
@@ -64,8 +66,8 @@ Just open `index.html` in a browser. No install needed.
 
 | What | Where |
 |---|---|
-| Projects, tools, chat answers | `assets/js/data.js` |
-| Hero text, about, timeline, certifications | `index.html` |
+| Projects, skill tags, chat answers | `assets/js/data.js` |
+| Hero text, Know More, Timeline, certificates | `index.html` |
 | Brand colours & fonts | `assets/css/base/variables.css` |
 | Transition length | `T=` in `assets/js/theme.js` |
 

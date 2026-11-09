@@ -4,12 +4,27 @@ header.scrolled{background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop
 .nav{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-weight:800;font-size:1.25rem;letter-spacing:-.04em}
 .logo b{color:var(--accent)}
+.site-version{font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:0;color:var(--muted);white-space:nowrap}
 .pill{display:flex;gap:4px;background:color-mix(in srgb,var(--card) 80%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line);padding:6px;border-radius:999px}
 .pill a{padding:8px 16px;border-radius:999px;font-size:.88rem;color:var(--muted);transition:.2s}
 .pill a:hover,.pill a.active{color:var(--text);background:var(--bg2)}
+/* Playground menu in the nav pill: opens on hover or keyboard focus. The top padding bridges the gap so it stays open on the way down. */
+.pg-drop{position:relative;display:flex}
+.pg-menu{position:absolute;top:100%;left:50%;z-index:60;min-width:220px;padding-top:12px;transform:translate(-50%,-6px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility 0s .2s}
+.pg-drop:hover .pg-menu,.pg-drop:focus-within .pg-menu{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .2s,transform .2s}
+.pill .pg-menu a{display:block;border-radius:0;background:var(--card);border:1px solid var(--line);border-top-width:0;padding:11px 16px;font-size:.88rem;text-align:left;color:var(--muted);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.pill .pg-menu a:first-child{border-top-width:1px;border-radius:14px 14px 0 0}
+.pill .pg-menu a:last-child{border-radius:0 0 14px 14px}
+.pill .pg-menu a:hover,.pill .pg-menu a:focus-visible{color:var(--text);background:var(--bg2)}
 .nav-right{display:flex;gap:10px;align-items:center}
 .icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;display:grid;place-items:center;font-size:1.05rem}
 #menuBtn{display:none}
 #mobileMenu{display:none;position:fixed;inset:0;background:var(--bg);z-index:49;flex-direction:column;justify-content:center;align-items:center;gap:24px;font-size:2rem;font-weight:700}
 #mobileMenu.open{display:flex}
-@media(max-width:820px){.pill,.nav-right .btn{display:none}#menuBtn{display:grid}}
+@media(max-width:820px){.pill{display:none}#menuBtn{display:grid}}
+/* Tablet held sideways: a slimmer menu bar so it doesn't touch the logo */
+@media(min-width:821px) and (max-width:1100px){.pill a{padding:8px 11px;font-size:.84rem}}
+/* Small screens: Notify Me! stays, just more compact */
+@media(max-width:600px){.nav-right{gap:8px}.nav-right .btn{padding:8px 12px;font-size:.8rem}
+  .logo{display:flex;flex-direction:column;line-height:1.05}   /* version moves under the name to make room */
+  .logo .site-version{font-size:.6rem}}

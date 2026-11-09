@@ -1,4 +1,6 @@
 /* ========== 17. LIGHT / DARK TOGGLE SWITCH ========== */
+.theme-wrap{display:flex;flex-direction:column;align-items:center;gap:3px}
+.theme-label{font-family:var(--mono);font-size:.6rem;line-height:1;color:var(--muted);white-space:nowrap}
 .switch{background:none;border:0;cursor:pointer;padding:0;display:flex}
 .switch .trk{position:relative;width:62px;height:32px;border-radius:999px;background:var(--card);border:1px solid var(--line);transition:background .3s,border-color .3s}
 .switch .ic{position:absolute;top:50%;transform:translateY(-50%);font-size:.8rem;color:var(--muted);line-height:1}

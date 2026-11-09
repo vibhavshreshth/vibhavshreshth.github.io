@@ -1,0 +1,16 @@
+/* ========== 10. STACK (second column of Know More) + CERTIFICATES (row under it) ========== */
+#stack,#certificates{scroll-margin-top:90px}
+
+/* Tool names only. A colour wave lights each one in its brand colour in turn;
+   with reduced motion the colour still runs, without the lift. */
+.tools{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;--lift:-5px}
+@media(prefers-reduced-motion:reduce){.tools{--lift:0px}}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:.88rem;font-weight:500;color:var(--muted);cursor:default;transition:color .3s,border-color .3s,transform .3s}
+.tool:hover{color:var(--c);border-color:var(--c);transform:translateY(var(--lift))}
+.tools.live .tool{animation:toolWave 7s linear infinite;animation-delay:calc(var(--i)*.35s)}
+.tools.live .tool:hover{animation:none}
+@keyframes toolWave{0%,16%,100%{color:var(--muted);border-color:var(--line);transform:none}8%{color:var(--c);border-color:var(--c);transform:translateY(var(--lift))}}
+
+.certs{margin-top:70px}
+.certs ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+.certs li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.88rem}
