@@ -1,0 +1,26 @@
+.about { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: start; }
+.about .title { margin-bottom: 24px; }
+.ask {
+  margin-top: 32px; padding: 22px;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+}
+#askForm { display: flex; gap: 8px; margin: 12px 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button {
+  padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line);
+  font-size: .85rem; color: var(--muted); transition: all .25s;
+}
+.chips button:hover { color: var(--text); border-color: var(--accent); }
+.ans { margin-top: 14px; min-height: 1.6em; }
+.ans:not(:empty) { padding: 12px 14px; border-radius: var(--radius-sm); background: var(--bg-2); }
+
+.timeline { position: relative; padding-left: 24px; border-left: 1px solid var(--line); }
+.timeline li { position: relative; padding-bottom: 26px; color: var(--muted); font-size: .95rem; }
+.timeline li::before {
+  content: ""; position: absolute; left: -30px; top: 6px;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--accent);
+}
+.timeline li:first-child::before { background: var(--accent); }
+.timeline .yr { display: block; font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+.timeline b { display: block; color: var(--text); font-size: 1.05rem; }

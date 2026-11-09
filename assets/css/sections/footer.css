@@ -1,0 +1,15 @@
+footer { border-top: 1px solid var(--line); padding: 72px 0 110px; }
+.foot { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+.foot h4 { font-family: var(--mono); font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 500; margin-bottom: 14px; }
+.foot a { display: block; padding: 4px 0; width: fit-content; transition: color .2s; }
+.foot a:hover { color: var(--accent); }
+.avatar {
+  width: 54px; height: 54px; border-radius: 16px; margin-bottom: 16px;
+  display: grid; place-items: center; background: var(--accent); color: var(--accent-ink);
+  font-family: var(--display); font-weight: 900; font-size: 1.4rem;
+}
+.credit {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line);
+  color: var(--muted); font-size: .85rem;
+}

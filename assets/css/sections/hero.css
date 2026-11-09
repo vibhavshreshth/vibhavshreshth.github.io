@@ -1,0 +1,41 @@
+#home {
+  min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: center;
+  padding: calc(var(--nav-h) + 40px) 0 80px;
+  overflow: hidden;
+}
+.glow {
+  position: absolute; width: 60vw; height: 60vw; max-width: 760px; max-height: 760px;
+  right: -15vw; top: -10vw; border-radius: 50%;
+  background: radial-gradient(circle, var(--glow), transparent 65%);
+  filter: blur(20px); pointer-events: none;
+  animation: float 12s ease-in-out infinite alternate;
+}
+@keyframes float { to { transform: translate(-6vw, 8vh) scale(1.1); } }
+.hero-hi { font-size: 1.05rem; color: var(--muted); margin-bottom: 18px; }
+.hero-h {
+  font-size: clamp(2.4rem, 7vw, 5.6rem);
+  line-height: 1.05; letter-spacing: -.045em; font-weight: 800;
+}
+.roles {
+  display: block; height: 1.15em; overflow: hidden;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.roles ul { animation: roles 14s cubic-bezier(.7, 0, .3, 1) infinite; }
+.roles li { height: 1.15em; line-height: 1.15em; }
+@keyframes roles {
+  0%, 12%   { transform: translateY(0); }
+  16%, 28%  { transform: translateY(-1.15em); }
+  32%, 44%  { transform: translateY(-2.3em); }
+  48%, 60%  { transform: translateY(-3.45em); }
+  64%, 76%  { transform: translateY(-4.6em); }
+  80%, 92%  { transform: translateY(-5.75em); }
+  96%, 100% { transform: translateY(-6.9em); }
+}
+.hero-blocks {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  margin: 48px 0 40px; max-width: 900px;
+}
+.hero-blocks div { color: var(--muted); font-size: .95rem; border-top: 1px solid var(--line); padding-top: 16px; }
+.hero-blocks strong { display: block; color: var(--text); font-size: 1rem; margin-bottom: 4px; }

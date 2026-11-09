@@ -1,0 +1,14 @@
+/* Shown briefly while the theme switches */
+html.cyber {
+  --bg: #07020f; --bg-2: #13062a; --card: #10051f; --line: #ff2bd6;
+  --text: #00f0ff; --muted: #ff2bd6; --accent: #fcee0a; --accent-ink: #07020f;
+  --glow: rgba(255, 43, 214, .35);
+}
+html.cyber body { font-family: "Share Tech Mono", var(--mono); }
+html.cyber .title,
+html.cyber .hero-h,
+html.cyber .quote blockquote { font-family: var(--display); text-shadow: 3px 0 #ff2bd6, -3px 0 #00f0ff; }
+html.cyber body::after {
+  content: ""; position: fixed; inset: 0; z-index: 800; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 240, 255, .07) 0 2px, transparent 2px 4px);
+}

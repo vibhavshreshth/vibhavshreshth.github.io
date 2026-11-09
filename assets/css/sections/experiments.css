@@ -1,0 +1,32 @@
+.exp { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px; display: flex; flex-direction: column; gap: 10px;
+  transition: transform .35s var(--ease), border-color .35s;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.card h3 { font-size: 1.2rem; margin-top: 8px; }
+.vis {
+  height: 170px; border-radius: var(--radius-sm); background: var(--bg-2);
+  display: grid; place-items: center; overflow: hidden; color: var(--accent);
+}
+.more { margin-top: auto; padding-top: 8px; font-weight: 600; color: var(--accent); }
+.more:hover { text-decoration: underline; }
+
+/* Animated prompt demo */
+.chat-in {
+  font-family: var(--mono); font-size: .9rem; color: var(--text);
+  padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--card);
+  white-space: nowrap; overflow: hidden; width: 21ch;
+  border-right: 2px solid var(--accent);
+  animation: type 3.5s steps(21) infinite, caret .7s step-end infinite;
+}
+@keyframes type { 0% { width: 0; } 60%, 100% { width: 21ch; } }
+@keyframes caret { 50% { border-right-color: transparent; } }
+
+.spin {
+  width: 80px; height: 80px; border-radius: 22px;
+  border: 3px solid var(--accent); border-top-color: transparent;
+  animation: spin 3s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
