@@ -16,7 +16,7 @@ Plain HTML, CSS and JavaScript. No frameworks, no build step, no cost.
 ## Project structure
 
 ```
-vibhav-portfolio/
+vibhavshreshth.github.io/
 ├── index.html                 # Page markup (all sections)
 ├── assets/
 │   ├── css/
@@ -48,7 +48,6 @@ vibhav-portfolio/
 │   │   └── main.js            # Cookie notice, footer year
 │   └── img/
 │       └── favicon.svg
-├── .github/workflows/deploy.yml  # Auto-deploy to GitHub Pages
 ├── .editorconfig
 ├── .gitignore
 ├── .nojekyll
@@ -71,9 +70,14 @@ Just open `index.html` in a browser. No install needed.
 
 ## Deploy free on GitHub Pages
 
-1. Create a new public repository on GitHub and push this folder to the `main` branch.
-2. In the repo go to **Settings → Pages → Source** and choose **GitHub Actions**.
-3. Every push to `main` publishes the site at `https://<your-username>.github.io/<repo-name>/`.
+This repo is named `vibhavshreshth.github.io`, so GitHub publishes it at **https://vibhavshreshth.github.io**.
+
+1. In the repo go to **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
+3. Set the branch to `main` and the folder to `/ (root)`, then **Save**.
+4. Every push to `main` updates the live site within a few minutes.
+
+No build step or workflow is needed — `.nojekyll` tells GitHub to serve the files as they are.
 
 ## License
 
