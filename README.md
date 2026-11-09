@@ -70,6 +70,7 @@ Just open `index.html` in a browser. No install needed.
 | Hero text, Know More, Timeline, certificates | `index.html` |
 | Brand colours & fonts | `assets/css/base/variables.css` |
 | Transition length | `T=` in `assets/js/theme.js` |
+| Version tag on CSS/JS links | `?v=` in `index.html` — change it (find and replace) every time you publish, so visitors get the new files |
 
 ## Deploy free on GitHub Pages
 
