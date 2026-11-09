@@ -2,8 +2,7 @@
   const loader = document.getElementById("loader");
   const num = document.getElementById("loadNum");
   if (!loader || !num) return;
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const duration = reduce ? 0 : 1100;
+  const duration = 1100;
   const start = performance.now();
   function tick(now) {
     const p = duration ? Math.min(1, (now - start) / duration) : 1;

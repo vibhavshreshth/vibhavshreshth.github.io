@@ -29,11 +29,18 @@
   }, { rootMargin: "-45% 0px -50% 0px" });
   sections.forEach(s => spy.observe(s));
 
-  // Scroll reveal
-  window.revealObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach(en => {
-      if (en.isIntersecting) { en.target.classList.add("in"); obs.unobserve(en.target); }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll(".reveal").forEach(el => window.revealObserver.observe(el));
+  // Scroll reveal — starts once the loader has gone, staggered per batch
+  const startReveal = () => {
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.filter(en => en.isIntersecting).forEach((en, i) => {
+        en.target.style.transitionDelay = i * 90 + "ms";
+        en.target.classList.add("in");
+        o.unobserve(en.target);
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+  };
+  const loader = document.getElementById("loader");
+  if (!loader || loader.classList.contains("done")) startReveal();
+  else document.addEventListener("loaded", startReveal, { once: true });
 })();

@@ -16,7 +16,7 @@
   80%  { opacity: .7; clip-path: inset(0 0 0 0); transform: none; }
   100% { opacity: 0; }
 }
-html.glitching body { animation: shake .45s steps(3) 2; }
+html.glitching body > :not(#glitch):not(#loader) { animation: shake .45s steps(3) 2; }
 @keyframes shake {
   0% { transform: translate(0); filter: none; }
   33% { transform: translate(-3px, 2px); filter: hue-rotate(90deg); }
