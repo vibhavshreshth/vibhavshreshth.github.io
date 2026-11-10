@@ -181,7 +181,54 @@ Fonts load from Google Fonts: Inter (400–800), JetBrains Mono (400, 500).
 
 ---
 
-## 8. Imagery and icons
+## 8. Theme transition
+
+The brand's signature moment. When someone flips the light/dark switch, the site "crashes" into a cyberpunk version of itself for a split second, then lands in the new theme. It lasts **200 ms in total** (set by `T=200` in `assets/js/theme.js`).
+
+### The four phases
+
+| Phase | Time | What happens |
+|---|---|---|
+| 1 · Crash | 0–20% (0–40 ms) | Heavy glitch on the current theme. A **white flash** fills the screen from 11–25% |
+| 2 · Cyberpunk | 20–82% (40–164 ms) | The whole site switches to the cyberpunk look, with a lighter glitch running over it |
+| 3 · Re-crash | 73–87% (146–174 ms) | Heavy glitch again with a **black flash**. The new light or dark theme swaps in at 82% |
+| 4 · Settle | 87–100% (174–200 ms) | The glitch fades out and the new theme is left calm |
+
+### Glitch effects (all phases)
+
+- **Torn slices:** 4–10 horizontal strips of the page are colour-inverted, hue-shifted and pushed sideways.
+- **Colour bars:** 6–16 thin bars in magenta `#FF00C8`, cyan `#00F0FF`, yellow `#F7FF3C` and white, blended with "difference" so they cut through the page.
+- **Noise:** a fine scanline and static overlay while the glitch is strong.
+- **Shake:** the page jumps up to 26 px sideways and skews up to 6°.
+- **RGB split:** text and shapes get magenta and cyan ghost copies, with extra contrast; about one frame in five fully inverts with a random hue.
+- **Red eyes:** the avatar's eyes glow red, then fade out over 0.6 s.
+
+### What the cyberpunk site looks like (phase 2)
+
+| Element | Cyberpunk look |
+|---|---|
+| Background | Near-black violet `#05010D` with magenta and cyan glows, a moving magenta grid floor, scanlines, a vignette and a soft flicker |
+| Headings, logo, menu | Orbitron, uppercase; section titles get a magenta/cyan split that jitters |
+| Accent | Cyan `#00F0FF` replaces lime/indigo; magenta `#FF2BD6` for highlights, yellow `#F7FF3C` as a third neon |
+| Eyebrows | Magenta with a glow and a `//` prefix, in Share Tech Mono |
+| Logo full stop | Magenta with a neon glow |
+| Cards and tiles | Square, cut-corner panels with a thin cyan edge glow |
+| Buttons | Slanted parallelograms in mono uppercase; primary glows cyan, turns magenta on hover |
+| Pills, tags, inputs | Square corners |
+| Timeline dots | Magenta diamonds with a glow |
+| Theme switch | Square track with a glowing magenta knob |
+
+### Rules
+
+- **Only on the theme switch.** Never on page load, scrolling or any other click.
+- **Keep it at 200 ms.** Longer starts to feel like a real error.
+- **Never a standing theme.** The cyberpunk palette and fonts appear only inside the transition.
+- **Reduced motion:** visitors who ask for less motion get the colours, flashes and cyberpunk frame, but **no shake or skew**.
+- **Clicks during the transition** are ignored, so it can't stack or loop.
+
+---
+
+## 9. Imagery and icons
 
 - **Illustration over photos:** the line avatar is the face of the brand.
 - **Diagrams** (Golden Circle) use the accent colour and rotate slowly.
@@ -190,7 +237,7 @@ Fonts load from Google Fonts: Inter (400–800), JetBrains Mono (400, 500).
 
 ---
 
-## 9. Voice and tone
+## 10. Voice and tone
 
 **Sound like:** a consultant explaining things to a smart friend. Clear, specific, warm, slightly playful.
 
@@ -217,7 +264,7 @@ Fonts load from Google Fonts: Inter (400–800), JetBrains Mono (400, 500).
 
 ---
 
-## 10. Using the brand elsewhere
+## 11. Using the brand elsewhere
 
 | Channel | Apply |
 |---|---|
@@ -229,12 +276,13 @@ Fonts load from Google Fonts: Inter (400–800), JetBrains Mono (400, 500).
 
 ---
 
-## 11. Files
+## 12. Files
 
 | What | Where |
 |---|---|
 | Colour and font tokens | `assets/css/base/variables.css` |
 | Transition theme | `assets/css/themes/cyberpunk.css` |
+| Transition timing and glitch | `assets/js/theme.js` (`T=200`), `assets/css/components/glitch.css` |
 | Monogram / favicon | `assets/img/favicon.svg` |
 | Avatar | `assets/img/avatar.png` (original: `avatar.jpg`) |
 | Golden Circle artwork | `assets/img/golden-circle/` |

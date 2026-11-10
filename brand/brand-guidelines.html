@@ -142,6 +142,49 @@ code{font-family:var(--mono);font-size:.85em;background:var(--bg2);border:1px so
 .cyber b{font-family:'Orbitron',sans-serif;font-size:1.3rem;color:#00f0ff;text-shadow:0 0 12px #00f0ff;letter-spacing:.04em}
 .cyber p{font-family:'Share Tech Mono',monospace;color:#8c9ccc;margin-top:6px;font-size:.9rem}
 
+.cy-row{display:flex;align-items:center;gap:12px;margin-top:14px}
+.cy-btn{font-family:'Share Tech Mono',monospace;text-transform:uppercase;letter-spacing:.08em;background:#00f0ff;color:#05010d;padding:8px 20px;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 0 18px rgba(0,240,255,.6)}
+.cy-tag{font-family:'Share Tech Mono',monospace;font-size:.72rem;border:1px solid rgba(0,240,255,.4);color:#00f0ff;padding:3px 10px}
+.cy-dot{width:10px;height:10px;background:#ff2bd6;transform:rotate(45deg);box-shadow:0 0 10px #ff2bd6}
+.cyber p{color:#ff2bd6;text-shadow:0 0 8px rgba(255,43,214,.6)}
+
+/* Transition: phase bar */
+.phases{display:flex;height:58px;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin:10px 0 14px}
+.phases div{display:flex;flex-direction:column;justify-content:center;padding:0 10px;min-width:0;overflow:hidden;white-space:nowrap}
+.phases b{font-size:.8rem}
+.phases span{font-family:var(--mono);font-size:.68rem;opacity:.8}
+.phases .p1{background:#fff;color:#18181b;border-right:1px solid var(--line)}
+.phases .p2{background:#05010d;color:#00f0ff}
+.phases .p3{background:#000}
+.phases .p4{background:var(--accent);color:var(--accent-ink)}
+
+/* Transition: slowed-down demo */
+.tx-demo{border:1px dashed var(--line);border-radius:18px;padding:18px}
+.tx-stage{position:relative;height:200px;border-radius:14px;overflow:hidden;display:grid;place-items:center;background:#fafaf9;transition:none}
+.tx-card{display:grid;justify-items:center;gap:8px;text-align:center}
+.tx-eye{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#52525b}
+.tx-title{font-size:1.8rem;font-weight:800;letter-spacing:-.03em;color:#18181b}
+.tx-btn{background:#4f46e5;color:#fff;border-radius:999px;padding:8px 18px;font-weight:600;font-size:.85rem}
+.tx-flash{position:absolute;inset:0;opacity:0;pointer-events:none}
+.tx-controls{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:14px}
+.tx-now{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+/* glitching: shake + RGB split */
+.tx-stage[data-phase="crash"] .tx-card,.tx-stage[data-phase="recrash"] .tx-card{animation:txshake .08s steps(2) infinite;filter:drop-shadow(5px 0 #ff00c8) drop-shadow(-5px 0 #00f0ff) contrast(1.4)}
+.tx-stage[data-phase="cyber"] .tx-card{animation:txshake .2s steps(2) infinite;filter:drop-shadow(2px 0 #ff00c8) drop-shadow(-2px 0 #00f0ff)}
+@keyframes txshake{0%{transform:translate(-8px,2px) skewX(-4deg)}50%{transform:translate(7px,-2px) skewX(3deg)}100%{transform:translate(-3px,1px)}}
+@media(prefers-reduced-motion:reduce){.tx-stage .tx-card{animation:none!important}}
+/* cyberpunk look */
+.tx-stage[data-phase="cyber"],.tx-stage[data-phase="recrash"]{background:radial-gradient(ellipse at 20% 0%,rgba(255,43,214,.3),transparent 60%),#05010d}
+.tx-stage[data-phase="cyber"] .tx-eye,.tx-stage[data-phase="recrash"] .tx-eye{font-family:'Share Tech Mono',monospace;color:#ff2bd6;text-shadow:0 0 8px #ff2bd6}
+.tx-stage[data-phase="cyber"] .tx-eye:before,.tx-stage[data-phase="recrash"] .tx-eye:before{content:"// "}
+.tx-stage[data-phase="cyber"] .tx-title,.tx-stage[data-phase="recrash"] .tx-title{font-family:'Orbitron',sans-serif;text-transform:uppercase;font-size:1.4rem;color:#e9f6ff;text-shadow:2px 0 #ff2bd6,-2px 0 #00f0ff}
+.tx-stage[data-phase="cyber"] .tx-btn,.tx-stage[data-phase="recrash"] .tx-btn{border-radius:0;background:#00f0ff;color:#05010d;font-family:'Share Tech Mono',monospace;text-transform:uppercase;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+/* landed in dark */
+.tx-stage[data-phase="dark"]{background:#0b0b0c}
+.tx-stage[data-phase="dark"] .tx-eye{color:#a1a1aa}
+.tx-stage[data-phase="dark"] .tx-title{color:#f4f4f5}
+.tx-stage[data-phase="dark"] .tx-btn{background:#c6ff3d;color:#0b0b0c}
+
 /* Voice */
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .vs .card:first-child{border-color:#22c55e}.vs .card:first-child .k{color:#22c55e}
@@ -179,10 +222,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <a href="#layout"><span>05</span>Layout</a>
       <a href="#components"><span>06</span>Components</a>
       <a href="#motion"><span>07</span>Motion</a>
-      <a href="#imagery"><span>08</span>Imagery &amp; icons</a>
-      <a href="#voice"><span>09</span>Voice &amp; tone</a>
-      <a href="#elsewhere"><span>10</span>Using it elsewhere</a>
-      <a href="#files"><span>11</span>Files</a>
+      <a href="#transition"><span>08</span>Theme transition</a>
+      <a href="#imagery"><span>09</span>Imagery &amp; icons</a>
+      <a href="#voice"><span>10</span>Voice &amp; tone</a>
+      <a href="#elsewhere"><span>11</span>Using it elsewhere</a>
+      <a href="#files"><span>12</span>Files</a>
     </nav>
 
     <main>
@@ -369,13 +413,76 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
           <tr><td>Colour wave</td><td>7 s loop</td><td>Only while on screen</td></tr>
           <tr><td>Reduced motion</td><td>—</td><td>Keep colour changes; drop movement and shaking</td></tr>
         </table></div>
-        <h3>The cyberpunk moment</h3>
-        <div class="cyber"><b>VIBHAV.</b><p>// theme switching… 200 ms of glitch, then back to calm</p></div>
       </section>
 
       <!-- 08 -->
+      <section id="transition">
+        <p class="eyebrow">08 · Theme transition</p>
+        <h2>200 ms of controlled chaos.</h2>
+        <p class="lead">The brand's signature moment. When someone flips the light/dark switch, the site "crashes" into a cyberpunk version of itself for a split second, then lands in the new theme. Total length: <b>200 ms</b> (<code>T=200</code> in <code>assets/js/theme.js</code>).</p>
+
+        <h3>See it slowed down</h3>
+        <div class="tx-demo">
+          <div class="tx-stage" id="txStage" data-phase="calm">
+            <div class="tx-card"><span class="tx-eye">Know More</span><b class="tx-title">Ask me anything.</b><span class="tx-btn">Notify Me!</span></div>
+            <div class="tx-flash" id="txFlash"></div>
+          </div>
+          <div class="tx-controls"><button class="btn primary" type="button" id="txPlay">▶ Play at 1/10 speed</button><span class="tx-now" id="txNow" aria-live="polite">Calm · light theme</span></div>
+        </div>
+
+        <h3>The four phases</h3>
+        <div class="phases" aria-label="Phase timeline">
+          <div style="flex:20" class="p1"><b>1 · Crash</b><span>0–40 ms</span></div>
+          <div style="flex:62" class="p2"><b>2 · Cyberpunk</b><span>40–164 ms</span></div>
+          <div style="flex:5" class="p3"><b></b><span></span></div>
+          <div style="flex:13" class="p4"><b>4 · Settle</b><span>174–200 ms</span></div>
+        </div>
+        <div class="scroll"><table class="tbl">
+          <tr><th>Phase</th><th>Time</th><th>What happens</th></tr>
+          <tr><td>1 · Crash</td><td>0–20%</td><td>Heavy glitch on the current theme; a <b>white flash</b> from 11–25%</td></tr>
+          <tr><td>2 · Cyberpunk</td><td>20–82%</td><td>The whole site switches to the cyberpunk look, with a lighter glitch over it</td></tr>
+          <tr><td>3 · Re-crash</td><td>73–87%</td><td>Heavy glitch with a <b>black flash</b>; the new theme swaps in at 82%</td></tr>
+          <tr><td>4 · Settle</td><td>87–100%</td><td>The glitch fades out; the new theme is left calm</td></tr>
+        </table></div>
+
+        <h3>Glitch effects</h3>
+        <div class="grid g3">
+          <div class="card"><span class="k">Torn slices</span><p>4–10 horizontal strips inverted, hue-shifted and pushed sideways.</p></div>
+          <div class="card"><span class="k">Colour bars</span><p>6–16 thin bars in <span style="color:#ff00c8">magenta</span>, <span style="color:#00b8c4">cyan</span>, yellow and white, cutting through the page.</p></div>
+          <div class="card"><span class="k">Noise</span><p>Fine scanlines and static while the glitch is strong.</p></div>
+          <div class="card"><span class="k">Shake</span><p>The page jumps up to 26 px sideways and skews up to 6°.</p></div>
+          <div class="card"><span class="k">RGB split</span><p>Magenta and cyan ghost copies with extra contrast; about one frame in five fully inverts.</p></div>
+          <div class="card"><span class="k">Red eyes</span><p>The avatar's eyes glow red, then fade out over 0.6 s.</p></div>
+        </div>
+
+        <h3>What the cyberpunk site looks like</h3>
+        <div class="cyber"><b>VIBHAV.</b><p>// know more</p><div class="cy-row"><span class="cy-btn">Notify Me!</span><span class="cy-tag">PRE-SALES</span><span class="cy-dot"></span></div></div>
+        <div class="scroll"><table class="tbl" style="margin-top:14px">
+          <tr><th>Element</th><th>Cyberpunk look</th></tr>
+          <tr><td>Background</td><td>Near-black violet #05010D with magenta and cyan glows, a moving grid floor, scanlines, vignette and flicker</td></tr>
+          <tr><td>Headings, logo, menu</td><td>Orbitron, uppercase; section titles get a jittering magenta/cyan split</td></tr>
+          <tr><td>Accent</td><td>Cyan #00F0FF replaces lime/indigo; magenta #FF2BD6 and yellow #F7FF3C as extra neons</td></tr>
+          <tr><td>Eyebrows</td><td>Magenta glow with a <code>//</code> prefix, in Share Tech Mono</td></tr>
+          <tr><td>Cards and tiles</td><td>Square, cut-corner panels with a thin cyan edge glow</td></tr>
+          <tr><td>Buttons</td><td>Slanted parallelograms in mono uppercase; cyan glow, magenta on hover</td></tr>
+          <tr><td>Pills, tags, inputs</td><td>Square corners</td></tr>
+          <tr><td>Timeline dots</td><td>Magenta diamonds with a glow</td></tr>
+          <tr><td>Theme switch</td><td>Square track with a glowing magenta knob</td></tr>
+        </table></div>
+
+        <h3>Rules</h3>
+        <ul class="list">
+          <li><b>Only on the theme switch.</b> Never on page load, scrolling or any other click.</li>
+          <li><b>Keep it at 200 ms.</b> Longer starts to feel like a real error.</li>
+          <li><b>Never a standing theme.</b> Cyberpunk colours and fonts appear only inside the transition.</li>
+          <li><b>Reduced motion:</b> keep the colours, flashes and cyberpunk frame, but no shake or skew.</li>
+          <li><b>Clicks during the transition</b> are ignored, so it can't stack or loop.</li>
+        </ul>
+      </section>
+
+      <!-- 09 -->
       <section id="imagery">
-        <p class="eyebrow">08 · Imagery and icons</p>
+        <p class="eyebrow">09 · Imagery and icons</p>
         <h2>Hand-drawn, simple, consistent.</h2>
         <ul class="list">
           <li><b>Illustration over photos:</b> the line avatar is the face of the brand.</li>
@@ -385,9 +492,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         </ul>
       </section>
 
-      <!-- 09 -->
+      <!-- 10 -->
       <section id="voice">
-        <p class="eyebrow">09 · Voice and tone</p>
+        <p class="eyebrow">10 · Voice and tone</p>
         <h2>Like explaining to a smart friend.</h2>
         <blockquote>Think → Understand → Execute.</blockquote>
         <div class="vs" style="margin-top:18px">
@@ -411,9 +518,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         </ul>
       </section>
 
-      <!-- 10 -->
+      <!-- 11 -->
       <section id="elsewhere">
-        <p class="eyebrow">10 · Using the brand elsewhere</p>
+        <p class="eyebrow">11 · Using the brand elsewhere</p>
         <h2>One brand, every channel.</h2>
         <div class="grid g2">
           <div class="card"><span class="k">LinkedIn banner</span><p>Dark background, <code>vibhav.</code> wordmark, the positioning line, one lime highlight.</p></div>
@@ -424,14 +531,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         </div>
       </section>
 
-      <!-- 11 -->
+      <!-- 12 -->
       <section id="files">
-        <p class="eyebrow">11 · Files</p>
+        <p class="eyebrow">12 · Files</p>
         <h2>Where things live.</h2>
         <div class="scroll"><table class="tbl">
           <tr><th>What</th><th>Where</th></tr>
           <tr><td>Colour and font tokens</td><td><code>assets/css/base/variables.css</code></td></tr>
           <tr><td>Transition theme</td><td><code>assets/css/themes/cyberpunk.css</code></td></tr>
+          <tr><td>Transition timing and glitch</td><td><code>assets/js/theme.js</code> (<code>T=200</code>), <code>assets/css/components/glitch.css</code></td></tr>
           <tr><td>Monogram / favicon</td><td><code>assets/img/favicon.svg</code></td></tr>
           <tr><td>Avatar</td><td><code>assets/img/avatar.png</code> (original <code>avatar.jpg</code>)</td></tr>
           <tr><td>Golden Circle artwork</td><td><code>assets/img/golden-circle/</code></td></tr>
@@ -451,6 +559,28 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   const sync=()=>{const light=root.dataset.theme==='light';btn.textContent=light?'☾ Dark theme':'☀ Light theme';btn.setAttribute('aria-pressed',light)};
   btn.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='light'?'dark':'light';sync();try{localStorage.setItem('bg-theme',root.dataset.theme)}catch(e){}});
   sync();
+})();
+
+/* Slowed-down theme transition demo: the real 200 ms timeline, played 10 times slower (2 s).
+   Light → crash (white flash) → cyberpunk → re-crash (black flash, swap) → settle in dark. */
+(function(){
+  const stage=document.getElementById('txStage'),flash=document.getElementById('txFlash'),now=document.getElementById('txNow'),btn=document.getElementById('txPlay');
+  const T=2000,at=(p,fn)=>setTimeout(fn,p*T);
+  const set=(phase,label)=>{stage.dataset.phase=phase;now.textContent=label};
+  const fl=(c,on)=>{flash.style.background=c;flash.style.opacity=on?1:0};
+  let busy=false;
+  btn.addEventListener('click',()=>{
+    if(busy)return;busy=true;btn.disabled=true;
+    set('calm','Calm · light theme');fl('#fff',false);
+    set('crash','1 · Crash: heavy glitch');
+    at(.11,()=>fl('#fff',true));
+    at(.20,()=>set('cyber','2 · Cyberpunk'));
+    at(.25,()=>fl('#fff',false));
+    at(.73,()=>{set('recrash','3 · Re-crash: heavy glitch');fl('#000',true)});
+    at(.82,()=>set('recrash','3 · Re-crash: dark theme swaps in'));
+    at(.87,()=>{set('dark','4 · Settle');fl('#000',false)});
+    at(1,()=>{set('dark','Done · dark theme (the real thing takes 200 ms)');busy=false;btn.disabled=false;btn.textContent='↺ Play again'});
+  });
 })();
 </script>
 </body>
