@@ -3,13 +3,13 @@
 #home>.wrap{width:100%}
 .glow{position:absolute;width:520px;height:520px;border-radius:50%;background:var(--accent);filter:blur(160px);opacity:.14;top:10%;right:-10%;pointer-events:none}
 .hero-hi{font-size:1.15rem;color:var(--muted);margin-bottom:16px}
-.hero-avatar{position:relative;width:clamp(130px,14vw,170px);aspect-ratio:526/523;margin-bottom:14px}
+.hero-avatar{position:relative;width:clamp(120px,12.5vw,150px);aspect-ratio:648/814;margin-bottom:14px}
 .hero-avatar img{display:block;width:100%;height:100%}
 [data-theme="dark"] .hero-avatar img,[data-theme="cyber"] .hero-avatar img{filter:invert(1)}
 /* Red eyes: on during the theme-switch glitch, then fade out */
 .hero-avatar .eye{position:absolute;width:6%;aspect-ratio:1;border-radius:50%;background:#ff1a1a;box-shadow:0 0 4px 1px #ff1a1a,0 0 12px 3px rgba(255,26,26,.7);transform:translate(-50%,-50%);opacity:0;transition:opacity .6s}
-.hero-avatar .eye.l{left:34.6%;top:41.3%}
-.hero-avatar .eye.r{left:58.2%;top:39.8%}
+.hero-avatar .eye.l{left:30.7%;top:45.6%}     /* eye centres of assets/img/avatar.png */
+.hero-avatar .eye.r{left:60%;top:39.8%}
 body.glitching .hero-avatar .eye{opacity:1}
 .hero-h{font-size:clamp(2.6rem,7.5vw,6rem);font-weight:800;letter-spacing:-.045em;line-height:.98}
 .roles{display:block;height:1.3em;overflow:hidden;color:var(--accent)}

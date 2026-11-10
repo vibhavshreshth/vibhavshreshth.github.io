@@ -284,5 +284,5 @@ The brand's signature moment. When someone flips the light/dark switch, the site
 | Transition theme | `assets/css/themes/cyberpunk.css` |
 | Transition timing and glitch | `assets/js/theme.js` (`T=200`), `assets/css/components/glitch.css` |
 | Monogram / favicon | `assets/img/favicon.svg` |
-| Avatar | `assets/img/avatar.png` (original: `avatar.jpg`) |
+| Avatar | `assets/img/avatar.png` (transparent ink; original drawing: `avatar-source.webp`) |
 | Golden Circle artwork | `assets/img/golden-circle/` |
