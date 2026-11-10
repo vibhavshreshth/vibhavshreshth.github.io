@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brand Guidelines · Vibhav Shreshth</title>
+<meta name="description" content="Brand guidelines for Vibhav Shreshth: essence, logo, colour, typography, layout, components, motion and voice.">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem('bg-theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}</script>
+<style>
+/* Same tokens as assets/css/base/variables.css */
+:root{
+  --bg:#0b0b0c;--bg2:#141416;--card:#18181b;--line:#27272a;
+  --text:#f4f4f5;--muted:#a1a1aa;--accent:#c6ff3d;--accent-ink:#0b0b0c;
+  --font:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;--max:1080px;
+}
+[data-theme="light"]{
+  --bg:#fafaf9;--bg2:#f1f1ef;--card:#ffffff;--line:#e4e4e7;
+  --text:#18181b;--muted:#52525b;--accent:#4f46e5;--accent-ink:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* Header */
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.wm{font-weight:800;font-size:1.25rem;letter-spacing:-.04em;text-decoration:none}
+.wm b{color:var(--accent)}
+.bar small{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-left:8px}
+.toggle{font:inherit;font-size:.82rem;font-weight:600;cursor:pointer;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+.toggle:hover{border-color:var(--accent)}
+
+/* Layout */
+.layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:48px;padding:48px 0 96px}
+nav.toc{position:sticky;top:96px;align-self:start;font-size:.88rem}
+nav.toc a{display:block;padding:5px 0;color:var(--muted);text-decoration:none}
+nav.toc a:hover{color:var(--accent)}
+nav.toc span{font-family:var(--mono);font-size:.72rem;margin-right:8px;opacity:.7}
+@media(max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}nav.toc{display:none}}
+
+.cover{padding:72px 0 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cover h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:800;letter-spacing:-.045em;line-height:.98;margin:12px 0 20px}
+.cover h1 em{font-style:normal;color:var(--accent)}
+.cover p{max-width:640px;color:var(--muted);font-size:1.05rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+
+section{padding:56px 0;border-bottom:1px solid var(--line);scroll-margin-top:72px}
+section:last-child{border-bottom:0}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:8px 0 18px}
+h3{font-size:1.1rem;font-weight:700;letter-spacing:-.01em;margin:32px 0 12px}
+p.lead{color:var(--muted);max-width:680px;margin-bottom:8px}
+ul.list{list-style:none;display:grid;gap:8px;margin:8px 0}
+ul.list li{position:relative;padding-left:22px}
+ul.list li:before{content:"→";position:absolute;left:0;color:var(--accent)}
+code{font-family:var(--mono);font-size:.85em;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+
+/* Tables */
+.tbl{width:100%;border-collapse:collapse;font-size:.92rem;margin:8px 0}
+.tbl th{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:500;padding:10px 12px;border-bottom:1px solid var(--line)}
+.tbl td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.scroll{overflow-x:auto}
+
+/* Cards and grids */
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card b{display:block;margin-bottom:4px}
+.card p{color:var(--muted);font-size:.9rem}
+.card .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;display:block}
+
+/* Golden circle */
+.circle{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.rings{position:relative;width:180px;height:180px}
+.rings i{position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);display:grid;place-items:start center;padding-top:10px;font-style:normal;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.rings i:nth-child(2){inset:30px;opacity:.85}
+.rings i:nth-child(3){inset:62px;background:var(--accent);color:var(--accent-ink);place-items:center;padding:0;font-weight:500}
+@media(max-width:560px){.circle{grid-template-columns:1fr;justify-items:center}}
+
+/* Logo */
+.logo-stage{display:grid;place-items:center;min-height:170px;border-radius:18px;border:1px solid var(--line)}
+.on-dark{background:#0b0b0c;color:#f4f4f5}.on-dark b{color:#c6ff3d}
+.on-light{background:#fafaf9;color:#18181b}.on-light b{color:#4f46e5}
+.big-wm{font-weight:800;font-size:clamp(2.4rem,7vw,3.6rem);letter-spacing:-.04em}
+.mono-mark{width:96px;height:96px;border-radius:21px;background:#0b0b0c;display:grid;place-items:center;font-weight:800;font-size:56px;color:#c6ff3d}
+.avatar{width:120px;height:auto}
+[data-theme="dark"] .avatar.auto{filter:invert(1)}
+.on-dark .avatar{filter:invert(1)}
+.cap{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:8px;text-align:center}
+.dont{border-color:#ef4444}
+.dont .k{color:#ef4444}
+
+/* Colour swatches */
+.swatch{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.swatch .chip{height:84px;border-bottom:1px solid var(--line)}
+.swatch div:last-child{padding:10px 12px;font-size:.82rem}
+.swatch b{display:block}
+.swatch code{font-size:.72rem;padding:0 4px}
+.swatch span{display:block;color:var(--muted);font-size:.78rem;margin-top:4px}
+.ratio{display:flex;height:44px;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin:10px 0}
+.ratio div{display:grid;place-items:center;font-family:var(--mono);font-size:.72rem}
+.ok{color:#22c55e}.no{color:#ef4444}
+
+/* Type specimens */
+.spec{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.spec:last-child{border-bottom:0}
+.spec .lbl{font-family:var(--mono);font-size:.72rem;color:var(--muted);line-height:1.5}
+@media(max-width:620px){.spec{grid-template-columns:1fr;gap:6px}}
+
+/* Components */
+.demo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:24px;border:1px dashed var(--line);border-radius:18px;margin:10px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font:inherit;font-weight:600;font-size:.95rem;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.outline{background:none;color:var(--accent);border:1.5px solid var(--accent)}
+.btn.outline:hover{background:var(--accent);color:var(--accent-ink)}
+.tag{font-family:var(--mono);font-size:.72rem;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:3px 10px}
+.tag.cat{border-color:var(--accent);color:var(--accent)}
+.badge{font-family:var(--mono);font-size:.66rem;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:1px 8px}
+.field{background:var(--bg2);border:1px solid var(--line);color:var(--text);border-radius:999px;padding:12px 16px;font:inherit;min-width:220px}
+.field:focus{outline:2px solid var(--accent);outline-offset:1px}
+.tl{border-left:1px solid var(--line);padding-left:24px;display:grid;gap:18px}
+.tl div{position:relative}
+.tl div:before{content:"";position:absolute;left:-29px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.tl div.sub:before{left:-28px;width:7px;height:7px;background:var(--bg);border:1px solid var(--accent)}
+.tl small{display:block;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+
+/* Motion demo */
+.wave{display:flex;flex-wrap:wrap;gap:8px}
+.wave span{border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.86rem;color:var(--muted);animation:wave 4s linear infinite;animation-delay:calc(var(--i)*.3s)}
+@keyframes wave{0%,20%,100%{color:var(--muted);border-color:var(--line);transform:none}10%{color:var(--c);border-color:var(--c);transform:translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){.wave span{animation-name:wavecalm}@keyframes wavecalm{0%,20%,100%{color:var(--muted);border-color:var(--line)}10%{color:var(--c);border-color:var(--c)}}}
+.cyber{background:#05010d;border-radius:18px;padding:22px;color:#e9f6ff;border:1px solid rgba(0,240,255,.3)}
+.cyber b{font-family:'Orbitron',sans-serif;font-size:1.3rem;color:#00f0ff;text-shadow:0 0 12px #00f0ff;letter-spacing:.04em}
+.cyber p{font-family:'Share Tech Mono',monospace;color:#8c9ccc;margin-top:6px;font-size:.9rem}
+
+/* Voice */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vs .card:first-child{border-color:#22c55e}.vs .card:first-child .k{color:#22c55e}
+.vs .card:last-child{border-color:#ef4444}.vs .card:last-child .k{color:#ef4444}
+@media(max-width:620px){.vs{grid-template-columns:1fr}}
+blockquote{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.25;border-left:3px solid var(--accent);padding-left:18px;margin:12px 0}
+
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="wm" href="#top">vibhav<b>.</b><small>brand guidelines v1.2</small></a>
+    <button class="toggle" id="themeBtn" type="button" aria-pressed="false">☀ Light theme</button>
+  </div>
+</header>
+
+<div class="wrap" id="top">
+  <div class="cover">
+    <p class="eyebrow">Brand guidelines · November 2026</p>
+    <h1>Turning client needs into <em>clear</em> solutions.</h1>
+    <p>How the Vibhav Shreshth brand looks, moves and speaks: on the portfolio site and everywhere else. Every value here matches the live site at <a href="https://vibhavshreshth.github.io">vibhavshreshth.github.io</a>.</p>
+    <div class="meta"><span class="tag cat">Version 1.2</span><span class="tag">Dark first</span><span class="tag">Inter + JetBrains Mono</span><span class="tag">Lime · Indigo</span></div>
+  </div>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Contents">
+      <a href="#essence"><span>01</span>Brand essence</a>
+      <a href="#logo"><span>02</span>Logo</a>
+      <a href="#colour"><span>03</span>Colour</a>
+      <a href="#type"><span>04</span>Typography</a>
+      <a href="#layout"><span>05</span>Layout</a>
+      <a href="#components"><span>06</span>Components</a>
+      <a href="#motion"><span>07</span>Motion</a>
+      <a href="#imagery"><span>08</span>Imagery &amp; icons</a>
+      <a href="#voice"><span>09</span>Voice &amp; tone</a>
+      <a href="#elsewhere"><span>10</span>Using it elsewhere</a>
+      <a href="#files"><span>11</span>Files</a>
+    </nav>
+
+    <main>
+      <!-- 01 -->
+      <section id="essence">
+        <p class="eyebrow">01 · Brand essence</p>
+        <h2>Who we are.</h2>
+        <p class="lead">A pre-sales consultant who started as a developer, founded a software company, and earned an MBA at IIM Bodh Gaya. The brand exists to show one thing: client needs get understood properly before anything is sold.</p>
+        <div class="grid g2" style="margin-top:20px">
+          <div class="card"><span class="k">Positioning</span><b>Turning client needs into clear software solutions</b></div>
+          <div class="card"><span class="k">Promise</span><b>You'll be understood before you're sold to</b></div>
+          <div class="card"><span class="k">Audience</span><p>Hiring managers, sales and delivery leaders, founders and prospective clients.</p></div>
+          <div class="card"><span class="k">Proof</span><p>44 months of experience · 80+ proposals · 50+ intro calls · 40+ BANT-qualified discovery calls.</p></div>
+        </div>
+
+        <h3>Golden Circle</h3>
+        <div class="circle">
+          <div class="rings" aria-hidden="true"><i>WHAT</i><i>HOW</i><i>WHY</i></div>
+          <ul class="list">
+            <li><b>Why:</b> every business is unique, so every solution starts from its real need.</li>
+            <li><b>How:</b> Think → Understand → Execute (Golden Circle, POV, SMART goals).</li>
+            <li><b>What:</b> discovery, business analysis, proposals, proof-of-concepts and demos.</li>
+          </ul>
+        </div>
+
+        <h3>Personality</h3>
+        <div class="grid g4">
+          <div class="card"><span class="k">Clear</span><p>Plain words, numbers, short sentences. Not jargon.</p></div>
+          <div class="card"><span class="k">Curious</span><p>Learning in public; the site is a branding lab. Not know-it-all.</p></div>
+          <div class="card"><span class="k">Practical</span><p>Shows the real process and tools. Not vague claims.</p></div>
+          <div class="card"><span class="k">Playful</span><p>Glitch switch, red-eyed avatar, colour wave. Never hiding the content.</p></div>
+        </div>
+      </section>
+
+      <!-- 02 -->
+      <section id="logo">
+        <p class="eyebrow">02 · Logo</p>
+        <h2>Wordmark, monogram, avatar.</h2>
+        <div class="grid g2">
+          <div><div class="logo-stage on-dark"><span class="big-wm">vibhav<b>.</b></span></div><p class="cap">Primary wordmark on dark</p></div>
+          <div><div class="logo-stage on-light"><span class="big-wm">vibhav<b>.</b></span></div><p class="cap">Primary wordmark on light</p></div>
+          <div><div class="logo-stage on-light"><div class="mono-mark">V</div></div><p class="cap">Monogram · favicon and app icon</p></div>
+          <div><div class="logo-stage" style="background:var(--card)"><img class="avatar auto" src="../assets/img/avatar.png" width="526" height="523" alt="Illustrated line portrait of Vibhav Shreshth"></div><p class="cap">Avatar · inverted in dark mode</p></div>
+        </div>
+        <ul class="list" style="margin-top:18px">
+          <li><b>Wordmark:</b> <code>vibhav.</code> in lowercase, Inter 800, letter-spacing −0.04em; the full stop takes the accent colour.</li>
+          <li><b>Header variant:</b> <code>vibhav_version1.1</code>, with the version in small muted JetBrains Mono. Site header only.</li>
+          <li><b>Monogram:</b> bold lime <code>V</code> on near-black, corner radius about 22% of the width.</li>
+          <li><b>Clear space:</b> the height of the <code>v</code> on every side. <b>Minimum size:</b> 16 px.</li>
+          <li><b>Avatar:</b> line portrait; eyes glow red only during the theme switch.</li>
+        </ul>
+        <div class="grid g3" style="margin-top:14px">
+          <div class="card dont"><span class="k">Don't</span><p>Capitalise, stretch, outline or add effects to the wordmark.</p></div>
+          <div class="card dont"><span class="k">Don't</span><p>Recolour the avatar or put it on busy photos.</p></div>
+          <div class="card dont"><span class="k">Don't</span><p>Put the lime monogram on a light background.</p></div>
+        </div>
+      </section>
+
+      <!-- 03 -->
+      <section id="colour">
+        <p class="eyebrow">03 · Colour</p>
+        <h2>Dark first, one accent.</h2>
+        <p class="lead">Every colour is a CSS variable, so themes switch by changing values. Use the switch at the top to see this page in each theme.</p>
+
+        <h3>Dark theme (default)</h3>
+        <div class="grid g4">
+          <div class="swatch"><div class="chip" style="background:#0b0b0c"></div><div><b>Background</b><code>--bg</code> #0B0B0C</div></div>
+          <div class="swatch"><div class="chip" style="background:#18181b"></div><div><b>Card</b><code>--card</code> #18181B</div></div>
+          <div class="swatch"><div class="chip" style="background:#27272a"></div><div><b>Line</b><code>--line</code> #27272A</div></div>
+          <div class="swatch"><div class="chip" style="background:#f4f4f5"></div><div><b>Text</b><code>--text</code> #F4F4F5</div></div>
+          <div class="swatch"><div class="chip" style="background:#a1a1aa"></div><div><b>Muted</b><code>--muted</code> #A1A1AA</div></div>
+          <div class="swatch"><div class="chip" style="background:#c6ff3d"></div><div><b>Lime accent</b><code>--accent</code> #C6FF3D<span>Buttons, links, highlights</span></div></div>
+        </div>
+
+        <h3>Light theme</h3>
+        <div class="grid g4">
+          <div class="swatch"><div class="chip" style="background:#fafaf9"></div><div><b>Background</b><code>--bg</code> #FAFAF9</div></div>
+          <div class="swatch"><div class="chip" style="background:#ffffff"></div><div><b>Card</b><code>--card</code> #FFFFFF</div></div>
+          <div class="swatch"><div class="chip" style="background:#e4e4e7"></div><div><b>Line</b><code>--line</code> #E4E4E7</div></div>
+          <div class="swatch"><div class="chip" style="background:#18181b"></div><div><b>Text</b><code>--text</code> #18181B</div></div>
+          <div class="swatch"><div class="chip" style="background:#52525b"></div><div><b>Muted</b><code>--muted</code> #52525B</div></div>
+          <div class="swatch"><div class="chip" style="background:#4f46e5"></div><div><b>Indigo accent</b><code>--accent</code> #4F46E5<span>Buttons, links, highlights</span></div></div>
+        </div>
+
+        <h3>Cyberpunk · theme-switch moment only</h3>
+        <div class="grid g4">
+          <div class="swatch"><div class="chip" style="background:#05010d"></div><div><b>Void</b>#05010D</div></div>
+          <div class="swatch"><div class="chip" style="background:#00f0ff"></div><div><b>Cyan neon</b>#00F0FF</div></div>
+          <div class="swatch"><div class="chip" style="background:#ff2bd6"></div><div><b>Magenta neon</b>#FF2BD6</div></div>
+          <div class="swatch"><div class="chip" style="background:#f7ff3c"></div><div><b>Yellow neon</b>#F7FF3C</div></div>
+        </div>
+        <p class="lead" style="margin-top:10px">Shown for a split second during the 200 ms theme switch. Never use it as a standing theme.</p>
+
+        <h3>Proportions</h3>
+        <div class="ratio" aria-label="70 percent background, 20 percent text and neutrals, 10 percent accent">
+          <div style="flex:70;background:var(--bg2);color:var(--muted)">70% background</div>
+          <div style="flex:20;background:var(--text);color:var(--bg)">20% text</div>
+          <div style="flex:10;background:var(--accent);color:var(--accent-ink)">10%</div>
+        </div>
+        <p class="lead">The accent marks what to look at or click next. If everything is accented, nothing is.</p>
+
+        <h3>Contrast (WCAG 2.1)</h3>
+        <div class="scroll"><table class="tbl">
+          <tr><th>Pair</th><th>Ratio</th><th>Rating</th></tr>
+          <tr><td>Text #F4F4F5 on #0B0B0C</td><td>17.8 : 1</td><td class="ok">AAA</td></tr>
+          <tr><td>Lime #C6FF3D on #0B0B0C</td><td>16.6 : 1</td><td class="ok">AAA</td></tr>
+          <tr><td>Muted #A1A1AA on #0B0B0C</td><td>7.6 : 1</td><td class="ok">AAA</td></tr>
+          <tr><td>Text #18181B on #FAFAF9</td><td>17.0 : 1</td><td class="ok">AAA</td></tr>
+          <tr><td>Muted #52525B on #FAFAF9</td><td>7.4 : 1</td><td class="ok">AAA</td></tr>
+          <tr><td>Indigo #4F46E5 on white, and white on indigo</td><td>6.3 : 1</td><td class="ok">AA</td></tr>
+          <tr><td>Lime #C6FF3D on white</td><td>1.2 : 1</td><td class="no">Never</td></tr>
+          <tr><td>Indigo #4F46E5 on #0B0B0C</td><td>3.1 : 1</td><td class="no">Not for text</td></tr>
+        </table></div>
+      </section>
+
+      <!-- 04 -->
+      <section id="type">
+        <p class="eyebrow">04 · Typography</p>
+        <h2>Inter for voice, mono for detail.</h2>
+        <div class="spec"><div class="lbl">Hero heading<br>Inter 800 · −0.045em<br>clamp(2.6rem, 7.5vw, 6rem)</div><div style="font-size:clamp(2.2rem,6vw,4rem);font-weight:800;letter-spacing:-.045em;line-height:.98">I have worked as<br><span style="color:var(--accent)">Pre-Sales Consultant.</span></div></div>
+        <div class="spec"><div class="lbl">Section title<br>Inter 800 · −0.03em<br>clamp(2.2rem, 5vw, 3.6rem)</div><div style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.05">Work Timeline.</div></div>
+        <div class="spec"><div class="lbl">Eyebrow<br>JetBrains Mono · 0.78rem<br>uppercase · 0.12em</div><div class="eyebrow">What I did at each stop on my timeline</div></div>
+        <div class="spec"><div class="lbl">Card title<br>Inter 700 · 1.25rem</div><div style="font-size:1.25rem;font-weight:700;letter-spacing:-.02em">Proposals &amp; Tenders</div></div>
+        <div class="spec"><div class="lbl">Body<br>Inter 400 · 1rem / 1.6</div><div>Turning discovery into written offers and tender responses, then following them through to closure.</div></div>
+        <div class="spec"><div class="lbl">Labels, dates, tags<br>JetBrains Mono · 0.66–0.8rem</div><div style="font-family:var(--mono);font-size:.8rem;color:var(--muted)">Apr 2025 — now · 1 yr 8 mos</div></div>
+        <p class="lead" style="margin-top:18px"><b>Pattern:</b> every section opens with a mono eyebrow (what it is) above a bold title ending in a full stop (what it says). Orbitron and Share Tech Mono appear only in the cyberpunk moment.</p>
+      </section>
+
+      <!-- 05 -->
+      <section id="layout">
+        <p class="eyebrow">05 · Layout and spacing</p>
+        <h2>Centred, roomy, rounded.</h2>
+        <div class="scroll"><table class="tbl">
+          <tr><th>Item</th><th>Value</th></tr>
+          <tr><td>Content width</td><td>1180 px max, 24 px side gutters</td></tr>
+          <tr><td>Section spacing</td><td>110 px top and bottom (80 px on phones)</td></tr>
+          <tr><td>Alignment</td><td>Centred headings and intros; left-aligned text inside cards and lists</td></tr>
+          <tr><td>Corner radius</td><td>18 px cards · 999 px buttons, pills, inputs · 12 px small tiles</td></tr>
+          <tr><td>Gaps</td><td>8–12 px in groups · 16–28 px between cards · 36–60 px between columns</td></tr>
+          <tr><td>Breakpoints</td><td>640 px phone · 820 px menu collapses · 900 px columns stack · 1100 px tablet footer</td></tr>
+        </table></div>
+      </section>
+
+      <!-- 06 -->
+      <section id="components">
+        <p class="eyebrow">06 · Components</p>
+        <h2>Building blocks.</h2>
+        <h3>Buttons</h3>
+        <div class="demo"><button class="btn primary" type="button">Work Timeline ↓</button><button class="btn outline" type="button">Playground ↓</button><button class="btn" type="button">Ghost button</button></div>
+        <ul class="list"><li><b>Primary:</b> one per view, for the main action.</li><li><b>Outline:</b> the second choice; fills on hover.</li><li><b>Ghost:</b> quiet, secondary actions.</li></ul>
+
+        <h3>Tags and badges</h3>
+        <div class="demo"><span class="tag cat">Pre-Sales</span><span class="tag cat">AI</span><span class="tag">BANT qualification</span><span class="tag">Figma</span><span class="badge">Internship</span></div>
+        <ul class="list"><li><b>Category tag:</b> accent outline. <b>Skill tag:</b> neutral outline.</li><li><b>Internship badge:</b> always shown for DocsTribe AI and Siemens.</li></ul>
+
+        <h3>Card</h3>
+        <div class="card" style="max-width:520px"><b style="font-size:1.1rem">Lead Qualification &amp; Discovery</b><p style="font-family:var(--mono);font-size:.74rem;margin:4px 0 10px">2025 – now</p><p>First point of contact for every inbound lead, working out what the client needs and whether the software suits them.</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px"><span class="tag cat">Pre-Sales</span><span class="tag">Discovery</span></div></div>
+
+        <h3>Timeline</h3>
+        <div class="demo" style="display:block"><div class="tl">
+          <div><small>Apr 2025 — now</small><b>Pre-Sales Consultant</b> · Dogma Group</div>
+          <div><small>2023 — 2025</small><b>MBA</b> · IIM Bodh Gaya</div>
+          <div class="sub"><small>Apr — Jul 2024</small><b>Product Manager Intern</b> · DocsTribe AI <span class="badge">Internship</span></div>
+        </div></div>
+
+        <h3>Form field</h3>
+        <div class="demo"><input class="field" placeholder="Your first name" aria-label="Example field"><button class="btn primary" type="button">Notify Me!</button></div>
+        <ul class="list"><li>bg2 fill, line border, fully rounded, 2 px accent focus ring; errors in red #EF4444 under the field.</li></ul>
+      </section>
+
+      <!-- 07 -->
+      <section id="motion">
+        <p class="eyebrow">07 · Motion</p>
+        <h2>Quick, purposeful, a little playful.</h2>
+        <div class="wave" aria-hidden="true">
+          <span style="--i:0;--c:#0b53ce">Dynamics 365</span><span style="--i:1;--c:#d83b01">Microsoft 365</span><span style="--i:2;--c:#d97757">Claude</span><span style="--i:3;--c:#a259ff">Figma</span><span style="--i:4;--c:#00c4cc">Canva</span><span style="--i:5;--c:#149eca">React</span>
+        </div>
+        <p class="cap" style="text-align:left">The Stack colour wave: each tool lights up in its own brand colour.</p>
+        <div class="scroll"><table class="tbl" style="margin-top:14px">
+          <tr><th>Moment</th><th>Timing</th><th>Rule</th></tr>
+          <tr><td>Theme switch glitch</td><td>200 ms</td><td>The signature moment; never longer</td></tr>
+          <tr><td>Scroll reveal</td><td>0.8 s, 24 px rise</td><td>Once per element</td></tr>
+          <tr><td>Hover lift</td><td>2–3 px, 0.2 s</td><td>Buttons, cards, icons</td></tr>
+          <tr><td>Colour wave</td><td>7 s loop</td><td>Only while on screen</td></tr>
+          <tr><td>Reduced motion</td><td>—</td><td>Keep colour changes; drop movement and shaking</td></tr>
+        </table></div>
+        <h3>The cyberpunk moment</h3>
+        <div class="cyber"><b>VIBHAV.</b><p>// theme switching… 200 ms of glitch, then back to calm</p></div>
+      </section>
+
+      <!-- 08 -->
+      <section id="imagery">
+        <p class="eyebrow">08 · Imagery and icons</p>
+        <h2>Hand-drawn, simple, consistent.</h2>
+        <ul class="list">
+          <li><b>Illustration over photos:</b> the line avatar is the face of the brand.</li>
+          <li><b>Diagrams</b> such as the Golden Circle use the accent colour and rotate slowly.</li>
+          <li><b>Icons:</b> simple line icons, 2 px stroke, rounded joins, in text or muted colour.</li>
+          <li><b>Social icons:</b> solid circles in the text colour; accent on hover.</li>
+        </ul>
+      </section>
+
+      <!-- 09 -->
+      <section id="voice">
+        <p class="eyebrow">09 · Voice and tone</p>
+        <h2>Like explaining to a smart friend.</h2>
+        <blockquote>Think → Understand → Execute.</blockquote>
+        <div class="vs" style="margin-top:18px">
+          <div class="card"><span class="k">Say</span><ul class="list">
+            <li>"80+ proposals using AI-assisted transcript analysis"</li>
+            <li>"Leave your name and a way to reach you"</li>
+            <li>Numbers and outcomes first</li>
+            <li>Internships labelled as internships</li></ul></div>
+          <div class="card"><span class="k">Don't say</span><ul class="list">
+            <li>"Leveraged cutting-edge AI synergies"</li>
+            <li>"Submit your details to proceed"</li>
+            <li>Adjectives first</li>
+            <li>Internships blurred into full-time roles</li></ul></div>
+        </div>
+        <h3>Rules</h3>
+        <ul class="list">
+          <li>First person, active voice, short sentences.</li>
+          <li>Sentence case for buttons and labels; section titles end with a full stop.</li>
+          <li>Experience is stated as <b>44 months</b>.</li>
+          <li>Feature names stay fixed: <b>Work Timeline</b>, <b>Playground</b>, <b>Know More</b>, <b>Notify Me!</b></li>
+        </ul>
+      </section>
+
+      <!-- 10 -->
+      <section id="elsewhere">
+        <p class="eyebrow">10 · Using the brand elsewhere</p>
+        <h2>One brand, every channel.</h2>
+        <div class="grid g2">
+          <div class="card"><span class="k">LinkedIn banner</span><p>Dark background, <code>vibhav.</code> wordmark, the positioning line, one lime highlight.</p></div>
+          <div class="card"><span class="k">Resume / PDF</span><p>Light theme; Inter throughout; indigo only for headings or rules.</p></div>
+          <div class="card"><span class="k">Slides</span><p>Dark title slides with lime, light content slides with indigo; eyebrow + title on every slide.</p></div>
+          <div class="card"><span class="k">Email signature</span><p>Name in Inter 600, role in muted, one accent link to the site.</p></div>
+          <div class="card"><span class="k">Medium / Instagram</span><p>Avatar as the profile image on a plain lime or near-black background.</p></div>
+        </div>
+      </section>
+
+      <!-- 11 -->
+      <section id="files">
+        <p class="eyebrow">11 · Files</p>
+        <h2>Where things live.</h2>
+        <div class="scroll"><table class="tbl">
+          <tr><th>What</th><th>Where</th></tr>
+          <tr><td>Colour and font tokens</td><td><code>assets/css/base/variables.css</code></td></tr>
+          <tr><td>Transition theme</td><td><code>assets/css/themes/cyberpunk.css</code></td></tr>
+          <tr><td>Monogram / favicon</td><td><code>assets/img/favicon.svg</code></td></tr>
+          <tr><td>Avatar</td><td><code>assets/img/avatar.png</code> (original <code>avatar.jpg</code>)</td></tr>
+          <tr><td>Golden Circle artwork</td><td><code>assets/img/golden-circle/</code></td></tr>
+          <tr><td>This guide as text</td><td><code>brand/brand-guidelines.md</code></td></tr>
+        </table></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer><div class="wrap"><span>vibhav<b style="color:var(--accent)">.</b> brand guidelines · v1.2 · November 2026</span><a href="https://vibhavshreshth.github.io">vibhavshreshth.github.io</a></div></footer>
+
+<script>
+/* Light / dark switch for previewing the guide in both themes */
+(function(){
+  const root=document.documentElement,btn=document.getElementById('themeBtn');
+  const sync=()=>{const light=root.dataset.theme==='light';btn.textContent=light?'☾ Dark theme':'☀ Light theme';btn.setAttribute('aria-pressed',light)};
+  btn.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='light'?'dark':'light';sync();try{localStorage.setItem('bg-theme',root.dataset.theme)}catch(e){}});
+  sync();
+})();
+</script>
+</body>
+</html>
