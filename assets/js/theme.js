@@ -1,8 +1,9 @@
 /* Theme
-   Light/dark switch, auto-fitting hero titles and the glitch → cyberpunk → new-theme transition. */
+   Light/dark switch, auto-fitting hero titles and the glitch → cyberpunk → new-theme transition.
+   Light is the default; a visitor's own choice (saved when they use the switch) wins. */
 
 const root=document.documentElement,tb=document.getElementById('themeBtn');
-try{const s=localStorage.getItem('theme');root.dataset.theme=(s==='light')?'light':'dark'}catch(e){root.dataset.theme='dark'}
+try{root.dataset.theme=localStorage.getItem('theme')==='dark'?'dark':'light'}catch(e){root.dataset.theme='light'}
 const syncIcon=()=>tb.setAttribute('aria-checked',root.dataset.theme==='dark');syncIcon();
 /* Shrink rotating roles so the longest one always fits on one line */
 function fitRoles(){const r=document.querySelector('.roles');r.style.fontSize='';
@@ -14,14 +15,14 @@ function applyTheme(t,save){root.dataset.theme=t;fitRoles();if(save)try{localSto
      0-20%  : heavy glitch on the current theme, white flash (11-25%)
     20-82%  : cyberpunk site visible
     73-87%  : heavy glitch + black flash, target theme swaps in at 82%
-    87-100% : glitch fades out                                           */
+    87-100% : glitch fades out
+   save: true when the visitor chose it (remembered next visit); false for the automatic intro. */
 const gl=document.getElementById('glitch');let glitching=false;
 const R=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.random()*a.length|0];
-tb.onclick=()=>{
-  const target=root.dataset.theme==='dark'?'light':'dark';
+function switchTheme(target,save){
+  if(glitching)return;glitching=true;
   tb.setAttribute('aria-checked',target==='dark');            /* slide the switch right away */
   const calm=matchMedia('(prefers-reduced-motion: reduce)').matches; /* reduce-motion devices: same effect, no shaking */
-  if(glitching)return;glitching=true;
   const bs=document.body.style;
   document.body.classList.add('glitching');gl.classList.add('on');
   const cols=['#ff00c8','#00f0ff','#f7ff3c','#ffffff'],t0=performance.now(),T=200;let phase=0;
@@ -29,7 +30,7 @@ tb.onclick=()=>{
     const e=t-t0;
     const k=e<.2*T?1:e<.73*T?.35:e<.87*T?1:Math.max(0,1-(e-.87*T)/(.13*T));   /* glitch intensity */
     if(phase===0&&e>=.2*T){applyTheme('cyber');phase=1}
-    if(phase===1&&e>=.82*T){applyTheme(target,true);phase=2}
+    if(phase===1&&e>=.82*T){applyTheme(target,save);phase=2}
     let h='';
     for(let i=0,n=Math.round(R(4,10)*k);i<n;i++)
       h+=`<div class="slice" style="top:${R(0,100)}%;height:${R(8,140)}px;transform:translateX(${R(-120,120)}px);--h:${R(0,360)}deg"></div>`;
@@ -44,7 +45,24 @@ tb.onclick=()=>{
     bs.setProperty('--gf',Math.random()<.2*k?`invert(1) hue-rotate(${R(0,360)}deg)`:
       `drop-shadow(${R(3,9)*k}px 0 #ff00c8) drop-shadow(${-R(3,9)*k}px 0 #00f0ff) contrast(${1+.5*k})`);
     if(e<T)requestAnimationFrame(frame);
-    else{if(phase<2)applyTheme(target,true);
+    else{if(phase<2)applyTheme(target,save);
       gl.classList.remove('on');gl.innerHTML='';document.body.classList.remove('glitching');bs.removeProperty('--gt');bs.removeProperty('--gf');glitching=false}
   })(t0);
-};
+}
+
+/* Intro: on every visit, the first time the top of the avatar's head reaches the top of the screen
+   (just under the menu bar), the site glitches from light, through cyberpunk, to dark on its own.
+   It plays once per page load; the dark theme it lands on isn't saved, so every visit starts light. */
+let introDone=false;
+const markIntro=()=>{introDone=true;removeEventListener('scroll',checkIntro)};
+function checkIntro(){
+  if(introDone)return;
+  const head=document.querySelector('.hero-avatar'),bar=document.querySelector('header');
+  if(head.getBoundingClientRect().top>bar.offsetHeight)return;
+  markIntro();
+  if(root.dataset.theme==='light')switchTheme('dark',false);
+}
+addEventListener('scroll',checkIntro,{passive:true});
+
+/* The switch: a visitor's own choice, remembered. Using it before the intro plays skips the intro for that visit. */
+tb.onclick=()=>{if(!glitching){markIntro();switchTheme(root.dataset.theme==='dark'?'light':'dark',true)}};

@@ -65,9 +65,9 @@ A styled version of this guide is in `brand-guidelines.html` in this folder. Sou
 
 ## 3. Colour
 
-The brand is **dark first**. Every colour is a CSS variable, so themes switch by changing values, never by hard-coding hex codes.
+Every visit starts on the **light** theme; dark is the visitor's choice (and the site switches to it once per visit, when the avatar's head reaches the menu bar). Every colour is a CSS variable, so themes switch by changing values, never by hard-coding hex codes.
 
-### Dark theme (default)
+### Dark theme
 
 | Token | Hex | Use |
 |---|---|---|
@@ -80,7 +80,7 @@ The brand is **dark first**. Every colour is a CSS variable, so themes switch by
 | `--accent` | `#C6FF3D` | Lime: primary buttons, links, highlights, dots |
 | `--accent-ink` | `#0B0B0C` | Text on the accent colour |
 
-### Light theme
+### Light theme (default)
 
 | Token | Hex | Use |
 |---|---|---|

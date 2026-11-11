@@ -29,7 +29,7 @@ vibhav-portfolio/
 │   │   │   ├── navbar.css
 │   │   │   ├── theme-toggle.css
 │   │   │   ├── glitch.css
-│   │   │   └── widgets.css    # Cookie notice, Notify Me! form
+│   │   │   └── widgets.css    # Notify Me! form (+ parked Phase 1 cookie notice styles)
 │   │   ├── sections/          # One file per page section
 │   │   │   ├── hero.css  logos.css  showcase.css  work.css
 │   │   │   ├── experiments.css  about.css  certificates.css
@@ -47,7 +47,7 @@ vibhav-portfolio/
 │   │   ├── projects.js        # Work Timeline section and its filters
 │   │   ├── chat.js
 │   │   ├── notify.js          # Notify Me! form
-│   │   └── main.js            # Cookie notice, footer year
+│   │   └── main.js            # Footer year (cookie notice parked for Phase 1)
 │   └── img/
 │       └── favicon.svg
 ├── .github/workflows/deploy.yml  # Auto-deploy to GitHub Pages
